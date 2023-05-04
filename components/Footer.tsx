@@ -1,17 +1,27 @@
 import React from "react";
 import styles from '../styles/Footer.module.css'
+import qrCode from '../assets/qrcode.png'
+import googlePlayStore from '../assets/googleplay.png'
+import appleStore from '../assets/downloadappstore@2x.png'
+import copyright from '../assets/iconcopyright.png'
+import underline from '../assets/underline2.png'
+import facebook from '../assets/iconfacebook.png'
+import twitter from '../assets/icontwitter.png'
+import instagram from '../assets/iconinstagram.png'
+import linkedin from '../assets/iconlinkedin.png'
+import sendEmail from '../assets/iconsend.png'
 
 export default function Footer() {
   return <>
   <div className={styles.footer}>
       <div className={styles.underlineParent}>
-        <img className={styles.underlineIcon} alt="" src="/" />
+        <img className={styles.underlineIcon} alt="" src={underline.src} />
         <div className={styles.frameWrapper}>
           <div className={styles.iconCopyrightParent}>
             <img
               className={styles.iconCopyright}
               alt=""
-              src="/"
+              src={copyright.src}
             />
             <div className={styles.exclusivegmailcom}>
               Copyright Rimel 2022. All right reserved
@@ -32,7 +42,7 @@ export default function Footer() {
           </div>
           <div className={styles.sendMail}>
             <div className={styles.enterYourEmail}>Enter your email</div>
-            <img className={styles.iconSend} alt="" src="/" />
+            <img className={styles.iconSend} alt="" src={sendEmail.src} />
           </div>
         </div>
         <div className={styles.frameContainer}>
@@ -76,20 +86,20 @@ export default function Footer() {
                   <img
                     className={styles.qrcode1Icon}
                     alt=""
-                    src="/"
+                    src={qrCode.src}
                   />
                 </div>
                 <div className={styles.googleplayParent}>
                   <img
                     className={styles.googleplayIcon}
                     alt=""
-                    src="/"
+                    src={googlePlayStore.src}
                   />
                   <div className={styles.appstore}>
                     <img
                       className={styles.downloadAppstoreIcon}
                       alt=""
-                      src="/"
+                      src={appleStore.src}
                     />
                   </div>
                 </div>
@@ -97,10 +107,10 @@ export default function Footer() {
             </div>
           </div>
           <div className={styles.iconFacebookParent}>
-            <img className={styles.iconSend} alt="" src="/" />
-            <img className={styles.iconSend} alt="" src="" />
-            <img className={styles.iconSend} alt="" src="/" />
-            <img className={styles.iconSend} alt="" src="/" />
+            <img className={styles.iconSend} alt="" src={facebook.src} />
+            <img className={styles.iconSend} alt="" src={twitter.src} />
+            <img className={styles.iconSend} alt="" src={instagram.src} />
+            <img className={styles.iconSend} alt="" src={linkedin.src} />
           </div>
         </div>
       </div>
