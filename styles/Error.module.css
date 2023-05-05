@@ -1,0 +1,118 @@
+.errorChild {
+  position: absolute;
+  top: 142px;
+  left: 0;
+  width: 1440px;
+  height: 0.5px;
+}
+.error {
+  position: inherit;
+  background-color: #fff;
+  width: 100%;
+  height: 47rem;
+  overflow: hidden;
+  text-align: left;
+  font-size: 14px;
+  color: #000;
+  font-family: system-ui;
+}
+.roadmapChild {
+  position: relative;
+  width: 6.89px;
+  height: 12.2px;
+  flex-shrink: 0;
+}
+.nothing1,
+.roadmapItem {
+  position: relative;
+  display: none;
+}
+.roadmapItem {
+  width: 13.19px;
+  height: 0;
+  flex-shrink: 0;
+}
+.nothing1 {
+  line-height: 21px;
+}
+.roadmap {
+  position: absolute;
+  top: 222px;
+  left: 12rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  font-family: system-ui;
+}
+.account {
+  position: relative;
+  line-height: 21px;
+  opacity: 0.5;
+}
+.english {
+  position: relative;
+  line-height: 21px;
+}
+
+.englishParent,
+.frameParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.frameParent {
+  position: absolute;
+  top: 12px;
+  right: 136px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 231px;
+}
+.notFoundParent {
+  position: absolute;
+  top: 383px;
+  left: 24rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  font-size: 110px;
+  font-family: system-ui;
+}
+.notFound {
+  position: relative;
+  letter-spacing: 0.03em;
+  line-height: 115px;
+  font-weight: 500;
+}
+.yourVisitedPage {
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: system-ui;
+}
+.button {
+  position: absolute;
+  top: 642px;
+  left: 40rem;
+  border-radius: 4px;
+  background-color: #db4444;
+  display: flex;
+  flex-direction: row;
+  padding: 16px 48px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #fafafa;
+}
+.viewAllProducts {
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
+  font-family: system-ui;
+}

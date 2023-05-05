@@ -1,0 +1,155 @@
+.dlbeatsnoop1Icon {
+  position: absolute;
+  top: 75px;
+  left: 0px;
+  width: 919px;
+  height: 706px;
+  object-fit: cover;
+}
+.sideImage {
+  position: relative;
+  border-radius: 0px 4px 4px 0px;
+  background-color: #cbe4e8;
+  width: 805px;
+  height: 781px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.logInTo {
+    position: relative;
+    letter-spacing: 0.04em;
+    line-height: 30px;
+    font-weight: 500;
+    font-size: 36px;
+}
+.enterYourDetails {
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: system-ui;
+}
+.logInToExclusiveParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+  font-family: system-ui;
+}
+.emailOrPhone {
+  position: relative;
+  line-height: 24px;
+  opacity: 0.4;
+  border: none;
+  width: -webkit-fill-available;
+}
+.underlineIcon {
+  position: relative;
+  width: 370px;
+  height: 1px;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+.emailOrPhoneNumberParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.frameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+  font-size: 16px;
+  font-family: system-ui;
+}
+.frameGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 48px;
+    position: relative;
+    left: 29rem;
+    top: 12rem;
+}
+.viewAllProducts {
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
+  color: white;
+}
+.button {
+  border-radius: 4px;
+  background-color: #db4444;
+  display: flex;
+  flex-direction: row;
+  padding: 16px 48px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.forgetPassword {
+    position: relative;
+    line-height: 24px;
+    color: #db4444;
+    text-decoration: none;
+    cursor: pointer;
+}
+.forgetPassword:hover{
+    color: #db4444;
+}
+.frameDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 87px;
+  font-size: 16px;
+  color: #fafafa;
+  font-family: system-ui;
+}
+.frameParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+  font-family: system-ui;
+}
+.sideImageParent {
+  position: relative;
+  top: 3rem;
+  left: 0px;
+  margin-bottom: 12rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 129px;
+  text-align: left;
+  font-size: 36px;
+  color: #000;
+  font-family: system-ui;
+}
+
+.underline{
+    height: 1px;
+    width: 22rem;
+    position: relative;
+    background: #c6c2c2;
+}
+
+.emailOrPhone:focus {
+    outline: none;
+    border: none;
+}
