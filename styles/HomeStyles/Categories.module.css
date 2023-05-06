@@ -1,0 +1,161 @@
+.frameParent {
+  position: absolute;
+  top: 182px;
+  left: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  text-align: center;
+  color: #000;
+  font-family: system-ui;
+}
+.womansFashionParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 51px;
+}
+.mensFashionParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 81px;
+}
+.womansFashion {
+    position: relative;
+    line-height: 24px;
+  }
+  .dropdownIconMen {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .heroEndframe {
+    position: absolute;
+    top: 182px;
+    left: 450px;
+    background-color: #000;
+    width: 892px;
+    height: 344px;
+    overflow: hidden;
+    text-align: center;
+    color: #fafafa;
+    font-family: system-ui;
+  }
+  .heroEndFrameIcon {
+    position: absolute;
+    top: 16px;
+    left: 396px;
+    width: 496px;
+    height: 352px;
+    object-fit: cover;
+  }
+  .appleGrayParent {
+    position: absolute;
+    top: 58px;
+    left: 64px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+  .appleGrayIcon {
+    position: relative;
+    width: 40px;
+    height: 49px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+  .iphone14Series {
+    position: relative;
+    line-height: 24px;
+    display: inline-block;
+    width: 126px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .upTo10 {
+    position: absolute;
+    top: 127px;
+    left: 64px;
+    font-size: 48px;
+    letter-spacing: 0.04em;
+    line-height: 60px;
+    font-weight: 600;
+    font-family: Inter;
+    text-align: left;
+    display: inline-block;
+    width: 294px;
+    font-family: system-ui;
+  }
+  .shopNow {
+    position: relative;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  .frameChild {
+    position: relative;
+    border-top: 1px solid #fafafa;
+    box-sizing: border-box;
+    width: 82px;
+    height: 1px;
+    flex-shrink: 0;
+  }
+  .shopNowParent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 4px;
+  }
+  .frameGroup {
+    position: absolute;
+    top: 269px;
+    left: 67px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    font-family: system-ui;
+  }
+  .frameItem {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+  .groupIcon {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+  .ellipseParent {
+    position: absolute;
+    top: 319px;
+    left: 353px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+  .dropdownIconWomen{
+    position: relative;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    overflow: hidden;
+    left: 10px;
+  }
+  

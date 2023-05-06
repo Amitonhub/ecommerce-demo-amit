@@ -1,11 +1,15 @@
-import React from "react";
 import { UseFormReturn, useForm } from "react-hook-form";
 import styles from "../styles/login.module.css";
 import logincart from "../assets/logincart.png";
 import { LogIn } from "./types/Types";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { fetchLogInData } from "@/pages/api/Api";
+import { logIn } from "@/redux/actions/LogInAction";
+import { setUserDataInLocalStorage } from "@/localstorage/localstorage";
 
 export default function Loginlayout() {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -13,16 +17,10 @@ export default function Loginlayout() {
   }: UseFormReturn<LogIn> = useForm();
 
   const onSubmit = (data: LogIn) => {
-    fetch("https://dummyjson.com/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: data.email,
-        password: data.password,
-      }),
-    })
-      .then((res) => res.json())
-      .then(console.log);
+    fetchLogInData(data).then((response) => {
+      dispatch(logIn(response));
+      setUserDataInLocalStorage(response)
+    });
     console.log(data);
   };
 
@@ -59,12 +57,11 @@ export default function Loginlayout() {
                       type="text"
                       className={styles.emailOrPhone}
                       placeholder="Email"
-                      {...register("email",
-                      {required: true,})}
-                      name="email"
+                      {...register("username", { required: true })}
+                      name="username"
                     />
-                    {errors?.email && (
-                      <Form.Text>{errors?.email.message}</Form.Text>
+                    {errors?.username && (
+                      <Form.Text>{errors?.username.message}</Form.Text>
                     )}
                     <div className={styles.underline}></div>
                   </div>
