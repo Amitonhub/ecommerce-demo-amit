@@ -1,0 +1,389 @@
+.frameContainer {
+  position: absolute;
+  top: 666px;
+  left: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+  font-family: system-ui;
+}
+.frameParent1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 470px;
+}
+.frameParent2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 87px;
+}
+.frameParent3 {
+  height: 103px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+}
+.instanceParent3 {
+  position: absolute;
+  top: 5161px;
+  left: 249px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 88px;
+  font-size: 20px;
+  color: #000;
+}
+.instanceChild {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  border-radius: 4px;
+  background-color: #db4444;
+}
+.rectangleWrapper {
+  position: relative;
+  width: 20px;
+  height: 40px;
+  flex-shrink: 0;
+}
+.instanceParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.flashSales {
+  position: relative;
+  font-size: 36px;
+  letter-spacing: 0.04em;
+  line-height: 48px;
+  font-weight: 600;
+  font-family: system-ui;
+  color: #000;
+}
+
+.days1 {
+  position: relative;
+  line-height: 18px;
+  font-weight: 500;
+  display: inline-block;
+  width: 31px;
+}
+.b {
+  position: relative;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  line-height: 30px;
+  display: inline-block;
+  font-family: system-ui;
+  width: 46px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.daysParent {
+  position: absolute;
+  height: 100%;
+  width: 15.23%;
+  top: 0%;
+  right: 84.77%;
+  bottom: 0%;
+  left: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.hours1 {
+  position: relative;
+  line-height: 18px;
+  font-weight: 500;
+  display: inline-block;
+  width: 35px;
+}
+.b1 {
+  position: relative;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  line-height: 30px;
+  font-family: system-ui;
+}
+.hoursParent {
+  position: absolute;
+  height: 100%;
+  width: 13.91%;
+  top: 0%;
+  right: 58.28%;
+  bottom: 0%;
+  left: 27.81%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.minutes1 {
+  position: relative;
+  line-height: 18px;
+  font-weight: 500;
+  display: inline-block;
+  width: 49px;
+}
+.b2 {
+  position: relative;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  line-height: 30px;
+  display: inline-block;
+  font-family: system-ui;
+  width: 39px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.minutesParent {
+  position: absolute;
+  height: 100%;
+  width: 16.23%;
+  top: 0%;
+  right: 29.47%;
+  bottom: 0%;
+  left: 54.3%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.seconds1 {
+  position: relative;
+  line-height: 18px;
+  font-weight: 500;
+  display: inline-block;
+  width: 52px;
+}
+.secondsParent {
+  position: absolute;
+  height: 100%;
+  width: 16.89%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 83.11%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.groupDiv {
+  position: relative;
+  width: 302px;
+  height: 50px;
+  flex-shrink: 0;
+  font-size: 12px;
+  color: #000;
+  left: 22px;
+}
+
+.fillWithLeftArrow {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+}
+.fillWithLeftArrowParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  position: relative;
+  left: 55px;
+}
+.discountPercent {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 4px;
+  background-color: #db4444;
+  display: flex;
+  flex-direction: row;
+  padding: 4px 12px;
+  align-items: center;
+  justify-content: center;
+}
+.fillHeartIcon {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+.fillHeartParent {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.cartWithFlatDiscountParent {
+  width: 1308px;
+  /* overflow-x: auto; */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
+  font-size: 12px;
+  color: #fafafa;
+}
+.cartWithFlatDiscount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.discountPercentParent {
+  position: relative;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  width: 270px;
+  height: 250px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.new {
+  position: relative;
+  line-height: 18px;
+}
+.gWrapper {
+  position: absolute;
+  top: calc(50% - 90px);
+  left: calc(50% - 95px);
+  width: 190px;
+  height: 180px;
+  overflow: hidden;
+}
+.gIcon {
+  position: absolute;
+  top: calc(50% - 76px);
+  left: calc(50% - 86px);
+  width: 172px;
+  height: 152px;
+  object-fit: cover;
+}
+
+.div6 {
+  position: relative;
+  text-decoration: line-through;
+  line-height: 24px;
+  font-weight: 500;
+  color: #000;
+  opacity: 0.5;
+}
+.parent1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+  color: #db4444;
+}
+.vectorIcon {
+  position: relative;
+  border-radius: 1.4px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.havitGamepadParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  font-size: 16px;
+  color: #000;
+}
+.shopNow {
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
+}
+.fiveStar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.div7 {
+  position: relative;
+  line-height: 21px;
+  font-weight: 600;
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+.fiveStarParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  font-size: 14px;
+}
+.rectangleDiv {
+  position: absolute;
+  width: 100%;
+  right: 0%;
+  bottom: 0px;
+  left: 0%;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #000;
+  height: 41px;
+}
+.addToCart {
+  position: absolute;
+  top: calc(50% + 92px);
+  left: calc(50% - 48px);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #fff;
+}
+.akIcon {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 95px);
+  width: 191px;
+  height: 101px;
+  object-fit: cover;
+}
+.akWrapper {
+  position: absolute;
+  top: calc(50% - 110px);
+  left: calc(50% - 95px);
+  width: 190px;
+  height: 180px;
+  overflow: hidden;
+}
