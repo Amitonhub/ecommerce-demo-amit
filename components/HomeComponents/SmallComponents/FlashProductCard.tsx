@@ -7,10 +7,7 @@ import { ProductProps } from "@/components/types/Types";
 
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
   const { price, rating, thumbnail, title, discountPercentage } = product;
-  const originalPrice = parseInt(
-    (price / ((100 - discountPercentage) / 100)).toFixed()
-  );
-
+  const originalPrice = parseInt((price / ((100 - discountPercentage) / 100)).toFixed());
   const formattedPrice = price.toLocaleString("en-US", { style: "currency", currency: "USD" });
 
   return (
@@ -18,6 +15,9 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
       <div className={styles.cartWithFlatDiscount}></div>
       <div className={styles.cartWithFlatDiscount}>
         <div className={styles.discountPercentParent}>
+          <div className={styles.discountPercent}>
+            <div className={styles.div}>{discountPercentage}%</div>
+          </div>
           <div className={styles.frameChild} />
           <div className={styles.addToCart}>Add To Cart</div>
           <div className={styles.fillHeartParent}>

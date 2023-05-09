@@ -1,0 +1,59 @@
+.instanceChild {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    border-radius: 4px;
+    background-color: #db4444;
+  }
+  .rectangleWrapper {
+    position: relative;
+    width: 20px;
+    height: 40px;
+  }
+  .featured {
+    position: relative;
+    line-height: 20px;
+    font-weight: 600;
+  }
+  .instanceParent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+  .newArrival {
+    position: relative;
+    font-size: 36px;
+    letter-spacing: 0.04em;
+    line-height: 48px;
+    font-weight: 600;
+    font-family: system-ui;
+    color: #000;
+  }
+  .frameGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  .frameParent {
+    position: absolute;
+    top: 4253px;
+    left: 135px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 60px;
+    text-align: left;
+    font-size: 16px;
+    color: #db4444;
+    font-family: system-ui;
+  }
+  

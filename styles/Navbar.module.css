@@ -12,14 +12,14 @@
   justify-content: flex-start;
   gap: 24px;
   font-size: 12px;
-  font-family: Poppins;
+  font-family: system-ui;
 }
 .header {
-    gap: 131px;
-    font-size: 24px;
-    font-family: system-ui;
-    margin: 2rem 12rem;
-    margin-bottom: 1.3rem;
+  gap: 174px;
+  font-size: 24px;
+  font-family: system-ui;
+  margin: 2rem 12rem;
+  margin-bottom: 1.3rem;
 }
 .header1,
 .header2,
@@ -113,9 +113,9 @@
   height: 32px;
   flex-shrink: 0;
 }
-.underline{
-    height: 1px;
-    width: 100%;
-    position: relative;
-    background: #c6c2c2;
+.underline {
+  height: 1px;
+  width: 100%;
+  position: relative;
+  background: #c6c2c2;
 }

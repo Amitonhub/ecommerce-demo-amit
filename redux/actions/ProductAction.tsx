@@ -13,7 +13,7 @@ export const fetchProductsRequest = (): FetchProductsRequest => ({
 });
 
 export const fetchProductsSuccess = (
-  products: Product
+  products: Product[]
 ): FetchProductsSuccess => ({
   type: FETCH_PRODUCTS_SUCCESS,
   payload: products,

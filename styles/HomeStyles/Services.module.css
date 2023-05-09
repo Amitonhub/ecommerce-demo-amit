@@ -1,0 +1,81 @@
+.servicesIcon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .freeAndFast {
+    position: relative;
+    line-height: 28px;
+    font-weight: 600;
+  }
+  .freeDeliveryFor {
+    position: relative;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+  }
+  .freeAndFastDeliveryParent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  .servicesParent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+  .friendly247Customer {
+    position: relative;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .servicesGroup {
+    width: 262px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+  .frameDiv {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+  .instanceParent {
+    position: absolute;
+    top: 5161px;
+    left: 333px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 88px;
+    text-align: left;
+    font-size: 20px;
+    color: #000;
+    font-family: system-ui;
+  }
+  .fillWithLeftArrow {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    top: 140px;
+  }
+  .fillWithLeftArrowParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+    position: relative;
+    left: 55px;
+    cursor: pointer;
+  }

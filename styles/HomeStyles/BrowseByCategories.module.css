@@ -1,0 +1,247 @@
+.frameContainer {
+    position: relative;
+    top: 767px;
+    left: 135px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 40px;
+    width: 5200px;
+    font-family: system-ui;
+  }
+  .frameParent1 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 519px;
+  }
+  .frameParent2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 87px;
+  }
+  .frameParent3 {
+    height: 103px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+  .instanceParent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+  .instanceChild {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    border-radius: 4px;
+    background-color: #db4444;
+  }
+  .rectangleWrapper {
+    position: relative;
+    width: 20px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+  .browseByCategory {
+    position: relative;
+    font-size: 36px;
+    letter-spacing: 0.04em;
+    line-height: 48px;
+    font-weight: 600;
+    font-family: system-ui;
+    color: #000;
+  }
+  .fillWithLeftArrow {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+  }
+  .fillWithLeftArrowParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+    position: relative;
+    left: 273px;
+  }
+
+  .phones {
+    position: absolute;
+    bottom: 24px;
+    left: calc(50% - 30px);
+    line-height: 24px;
+  }
+  .categoryCellphoneIcon {
+    position: absolute;
+    top: 25px;
+    left: calc(50% - 28px);
+    width: 56px;
+    height: 56px;
+    overflow: hidden;
+  }
+  .categoryPhone {
+    position: relative;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    width: 170px;
+    height: 145px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .computers {
+    position: absolute;
+    bottom: 24px;
+    left: calc(50% - 45px);
+    line-height: 24px;
+  }
+  .categoryComputerIcon {
+    position: absolute;
+    top: 25px;
+    left: calc(50% - 27px);
+    width: 56px;
+    height: 56px;
+    overflow: hidden;
+  }
+  .smartwatch {
+    position: absolute;
+    bottom: 24px;
+    left: calc(50% - 51px);
+    line-height: 24px;
+  }
+  .vectorIcon {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .vectorIcon1 {
+    position: absolute;
+    height: 53.57%;
+    width: 53.57%;
+    top: 23.21%;
+    right: 23.21%;
+    bottom: 23.21%;
+    left: 23.21%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .vectorIcon2 {
+    position: absolute;
+    height: 16.07%;
+    width: 28.57%;
+    top: 73.21%;
+    right: 35.71%;
+    bottom: 10.71%;
+    left: 35.71%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .vectorIcon3 {
+    position: absolute;
+    height: 16.07%;
+    width: 28.57%;
+    top: 10.71%;
+    right: 35.71%;
+    bottom: 73.21%;
+    left: 35.71%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .frameChild {
+    position: relative;
+    border-right: 2px solid #000;
+    box-sizing: border-box;
+    width: 2px;
+    height: 15px;
+  }
+  .frameItem {
+    position: relative;
+    border-right: 2px solid #000;
+    box-sizing: border-box;
+    width: 2px;
+    height: 10px;
+  }
+  .frameInner {
+    position: relative;
+    border-right: 2px solid #000;
+    box-sizing: border-box;
+    width: 2px;
+    height: 12px;
+  }
+  .lineParent {
+    position: absolute;
+    height: 23.21%;
+    width: 17.86%;
+    top: 39.29%;
+    right: 41.07%;
+    bottom: 37.5%;
+    left: 41.07%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 4px;
+  }
+  .camera {
+    position: absolute;
+    bottom: 24px;
+    left: calc(50% - 34px);
+    line-height: 24px;
+  }
+  .categoryPhone3 {
+    position: relative;
+    border-radius: 4px;
+    background-color: #db4444;
+    box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05);
+    width: 170px;
+    height: 145px;
+    overflow: hidden;
+    flex-shrink: 0;
+    color: #fafafa;
+  }
+  .gaming {
+    position: absolute;
+    bottom: 24px;
+    left: calc(50% - 32px);
+    line-height: 24px;
+  }
+  .categoryPhoneParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 45px;
+    text-align: left;
+    font-size: 16px;
+    color: #000;
+    font-family: system-ui;
+    position: relative;
+    top: 29px;
+  }
+  

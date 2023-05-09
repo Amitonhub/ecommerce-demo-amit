@@ -10,7 +10,7 @@ export interface FetchProductsRequest {
 
 export interface FetchProductsSuccess {
   type: typeof FETCH_PRODUCTS_SUCCESS,
-  payload: Product
+  payload: Product[]
 }
 
 export interface FetchProductsFailure {
