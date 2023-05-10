@@ -5,8 +5,9 @@ import { Product } from "@/components/types/Types";
 import ProductCard from "./SmallComponents/ProductCard";
 
 export default function BestSelling() {
-
-  const {products, loading, error} = useSelector((state: RootState) => state.products);
+  const { products, loading, error } = useSelector(
+    (state: RootState) => state.products
+  );
 
   if (loading) {
     return <div>Loading...</div>;
@@ -27,20 +28,24 @@ export default function BestSelling() {
                 <div className={styles.rectangleWrapper}>
                   <div className={styles.instanceChild} />
                 </div>
-                <div className={styles.div}><b>This Month</b></div>
+                <div className={styles.div}>
+                  <b>This Month</b>
+                </div>
               </div>
               <div className={styles.flashSales}>Best Selling Products</div>
             </div>
           </div>
           <div className={styles.viewAllProductsWrapper}>
-        <div className={styles.shopNow}>View All</div>
-      </div>
+            <div className={styles.shopNow}>View All</div>
+          </div>
         </div>
         <div className={styles.productContainer}>
           {sortedProducts &&
-            sortedProducts.slice(0, 4).map((product: Product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            sortedProducts
+              .slice(0, 4)
+              .map((product: Product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
         </div>
       </div>
     </>

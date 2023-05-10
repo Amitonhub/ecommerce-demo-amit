@@ -7,6 +7,11 @@ interface FiveStarProps {
 }
 
 const FiveStar: React.FC<FiveStarProps> = ({ rating }) => {
+
+  if (rating < 0 || rating > 5 || isNaN(rating)) {
+    return null; 
+  }
+
   const filledStars = Math.floor(rating);
   const emptyStars = 5 - filledStars;
 
@@ -37,5 +42,6 @@ const FiveStar: React.FC<FiveStarProps> = ({ rating }) => {
     </>
   );
 };
+
 
 export default FiveStar;

@@ -7,9 +7,11 @@ import { useDispatch } from "react-redux";
 import { fetchLogInData } from "@/pages/api/Api";
 import { logIn } from "@/redux/actions/LogInAction";
 import { setUserDataInLocalStorage } from "@/localstorage/localstorage";
+import { useRouter } from "next/router";
 
 export default function Loginlayout() {
   const dispatch = useDispatch();
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -20,6 +22,7 @@ export default function Loginlayout() {
     fetchLogInData(data).then((response) => {
       dispatch(logIn(response));
       setUserDataInLocalStorage(response)
+      router.push('/')
     });
     console.log(data);
   };
