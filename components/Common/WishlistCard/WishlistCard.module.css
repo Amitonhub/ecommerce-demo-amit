@@ -1,0 +1,214 @@
+.div {
+    position: relative;
+    line-height: 18px;
+    color: white;
+  }
+  .discountPercent {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    border-radius: 4px;
+    background-color: #db4444;
+    display: flex;
+    flex-direction: row;
+    padding: 4px 12px;
+    align-items: center;
+    justify-content: center;
+  }
+  .fillHeartIcon {
+    position: relative;
+    width: 34px;
+    height: 34px;
+  }
+  .fillHeartParent {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  .g922500x5001Icon {
+    position: absolute;
+    top: calc(50% - 76px);
+    left: calc(50% - 86px);
+    width: 172px;
+    height: 152px;
+    object-fit: cover;
+  }
+  .g922500x5001Wrapper {
+    position: absolute;
+    top: calc(50% - 90px);
+    left: calc(50% - 95px);
+    width: 190px;
+    height: 180px;
+    overflow: hidden;
+  }
+  .discountPercentParent {
+    position: relative;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    width: 270px;
+    height: 250px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .productTitle {
+    position: relative;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  .price {
+    position: relative;
+    text-decoration: line-through;
+    line-height: 24px;
+    font-weight: 500;
+    color: #000;
+    opacity: 0.5;
+  }
+  .parent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+    color: #db4444;
+  }
+  .vectorIcon {
+    position: relative;
+    border-radius: 1.4px;
+    width: 20px;
+    height: 20px;
+  }
+  .fiveStar {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .div3 {
+    position: relative;
+    line-height: 21px;
+    font-weight: 600;
+    display: inline-block;
+    width: 32px;
+    height: 20px;
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+  .fiveStarParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 14px;
+  }
+  .productParent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 16px;
+    color: #000;
+  }
+  .cartWithFlatDiscount {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+    font-family: system-ui;
+  }
+  .frameChild {
+    position: absolute;
+    width: 100%;
+    right: 0%;
+    bottom: 0px;
+    left: 0%;
+    top: 100%;
+    border-radius: 0px 0px 4px 4px;
+    background-color: #000;
+    height: 41px;
+    opacity: 0;
+  }
+  .addToCart {
+    position: absolute;
+    top: calc(50% + 92px);
+    left: calc(50% - 48px);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0;
+  }
+  .akIcon {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 95px);
+    width: 191px;
+    height: 101px;
+    object-fit: cover;
+  }
+  .akWrapper {
+    position: absolute;
+    top: calc(50% - 110px);
+    left: calc(50% - 95px);
+    width: 190px;
+    height: 180px;
+    overflow: hidden;
+  }
+  .vectorIcon9 {
+    position: relative;
+    border-radius: 1.4px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.25;
+  }
+  .g27cq4500x5001Icon {
+    position: absolute;
+    top: 26px;
+    left: 10px;
+    width: 170px;
+    height: 129px;
+    object-fit: cover;
+  }
+  .samMoghadamKhamsehKvmdstrgoIcon {
+    position: absolute;
+    top: 0px;
+    left: 41px;
+    width: 107px;
+    height: 180px;
+    object-fit: cover;
+  }
+  .starHalfFilledIcon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .cartWithFlatDiscountParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 12px;
+    color: #fafafa;
+    font-family: system-ui;
+    right: 51px;
+    position: relative;
+  }
+  .discountPercentParent:hover .frameChild {
+    opacity: 1;
+    transform: translateY(-100%);
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .discountPercentParent:hover .addToCart{
+    opacity: 1;
+  }

@@ -1,0 +1,181 @@
+.header,
+.searchComponentSetParent,
+.wishlistParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.header,
+.searchComponentSetParent {
+  justify-content: flex-start;
+  gap: 24px;
+  font-size: 12px;
+  font-family: system-ui;
+}
+.header {
+  gap: 174px;
+  font-size: 24px;
+  font-family: system-ui;
+  margin: 2rem 12rem;
+  margin-bottom: 1.3rem;
+}
+.header1,
+.header2,
+.header4 {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.header2,
+.header4 {
+  width: 66px;
+}
+.header4 {
+  width: 61px;
+}
+.headerParent,
+.logoParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.headerParent {
+  gap: 48px;
+  text-align: center;
+  font-size: 16px;
+  font-family: system-ui;
+}
+.logoParent {
+  gap: 160px;
+}
+
+.logo {
+  position: relative;
+  width: 118px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.exclusive {
+  position: absolute;
+  top: 0;
+  left: 0;
+  letter-spacing: 0.03em;
+  line-height: 24px;
+}
+.home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 24px;
+}
+.searchComponentSet {
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  flex-direction: column;
+  padding: 7px 12px 7px 20px;
+}
+
+.searchComponentSet,
+.whatAreYouLookingForParent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatAreYouLookingForParent {
+  flex-direction: row;
+  gap: 34px;
+}
+.whatAreYou {
+  position: relative;
+  line-height: 18px;
+  opacity: 0.5;
+  font-family: system-ui;
+}
+.dropdownIcon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.wishlistIcon {
+  overflow: hidden;
+}
+.cart1WithBuy,
+.wishlistIcon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.underline {
+  height: 1px;
+  width: 100%;
+  position: relative;
+  background: #c6c2c2;
+}
+.vectorIcon {
+  position: absolute;
+  height: 60.94%;
+  width: 67.19%;
+  top: 19.53%;
+  right: 16.41%;
+  bottom: 19.53%;
+  left: 16.41%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.groupChild {
+  position: absolute;
+  height: 94.12%;
+  width: 100%;
+  top: 5.88%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.div {
+  position: absolute;
+  width: 43.75%;
+  bottom: 0%;
+  left: 32%;
+  line-height: 18px;
+  display: inline-block;
+  color: white;
+}
+.ellipseParent {
+  position: absolute;
+  height: 53.13%;
+  width: 50%;
+  top: 0%;
+  right: 0%;
+  bottom: 46.88%;
+  left: 50%;
+}
+.wishlist {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 12px;
+  color: #fafafa;
+  font-family: system-ui;
+}
+.link {
+  text-decoration: none;
+  color: #000000;
+}
+.link:hover{
+  color: #000000;
+}

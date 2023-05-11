@@ -1,4 +1,4 @@
-import DetailsPage from "@/components/HomeComponents/DetailsPage";
+import DetailsPage from "@/components/HomeComponents/DetailsPage/DetailsPage";
 import { getProductDetails } from "@/redux/actions/ProductDetailsAction";
 import { ProductDetailsActionTypes } from "@/redux/actions/actionTypes/ProductDetailsTypes";
 import { RootState } from "@/redux/store";

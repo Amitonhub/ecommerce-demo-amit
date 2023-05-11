@@ -13,7 +13,7 @@ export interface ProductsState {
 }
 
 const initialState: ProductsState = {
-  products: [],
+  products: [] as Product[],
   loading: false,
   error: null,
 };

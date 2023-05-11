@@ -1,29 +1,16 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import Header from '@/components/header';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { Provider } from 'react-redux';
-import store from '@/redux/store';
+import { AppProps } from 'next/app'
+import { Provider } from 'react-redux'
+import store from '@/redux/store'
+import Layout from '@/components/Layout/Layout'
 
-config.autoAddCss = false;
-
-export default function App({ Component, pageProps }: AppProps) {
-  return <>
-  <Provider store={store}>
-  <Header/>
-  <Navbar/>
-  <Component {...pageProps} />
-  <Footer/>
-  </Provider>
-  </>
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  return (
+    <Provider store={store}>
+      <Layout Component={Component} pageProps={pageProps}>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
+  )
 }
 
-
-
-
-
-
+export default MyApp;

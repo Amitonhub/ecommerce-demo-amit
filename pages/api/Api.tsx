@@ -1,4 +1,5 @@
-import { LogIn } from "@/components/types/Types";
+import { LogIn, WishlistItem } from "@/components/types/Types";
+import axios from "axios";
 
 export const fetchLogInData = async (data: LogIn) => {
   const res = await fetch("https://dummyjson.com/auth/login", {
@@ -24,3 +25,35 @@ export const fetchProductDetails = async (id: number): Promise<any> => {
   const data = await response.json();
   return data;
 };
+
+export const addToWishlistToApi = async (wishlistItem: WishlistItem) => {
+  const response = await axios.get(
+    "https://645b80a099b618d5f31d12f9.mockapi.io/wishlist"
+  );
+  const wishlistData: WishlistItem[] = response.data;
+  const exists = wishlistData.some(
+    (item) =>
+      item.userId === wishlistItem.userId &&
+      item.product.id === wishlistItem.product.id
+  );
+  if (!exists) {
+    const postResponse = await axios.post(
+      "https://645b80a099b618d5f31d12f9.mockapi.io/wishlist",
+      wishlistItem
+    );
+    return postResponse.data;
+  } else {
+    return null;
+  }
+};
+
+export async function fetchWishlist(): Promise<WishlistItem[]> {
+  const response = await axios.get(
+    "https://645b80a099b618d5f31d12f9.mockapi.io/wishlist"
+  );
+  const data = response.data;
+  return data.map((item: WishlistItem) => ({
+    userId: item.userId,
+    product: item.product,
+  }));
+}
