@@ -8,6 +8,7 @@ export const fetchLogInData = async (data: LogIn) => {
     body: JSON.stringify({
       username: data.username,
       password: data.password,
+      expiresInMins: 60,
     }),
   });
   const dataFromApi = await res.json();
@@ -33,6 +34,7 @@ export const addToWishlistToApi = async (wishlistItem: WishlistItem) => {
   const wishlistData: WishlistItem[] = response.data;
   const exists = wishlistData.some(
     (item) =>
+    item.id === wishlistItem.id &&
       item.userId === wishlistItem.userId &&
       item.product.id === wishlistItem.product.id
   );
@@ -53,7 +55,22 @@ export async function fetchWishlist(): Promise<WishlistItem[]> {
   );
   const data = response.data;
   return data.map((item: WishlistItem) => ({
+    id: item.id,
     userId: item.userId,
     product: item.product,
   }));
 }
+
+export const deleteFromWishlistToApi = async (wishlistItemId: number) => {
+  try {
+    console.log('delete')
+    const response = await axios.delete(
+      `https://645b80a099b618d5f31d12f9.mockapi.io/wishlist/${wishlistItemId}`
+    );
+    console.log('deleted successfully')
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};

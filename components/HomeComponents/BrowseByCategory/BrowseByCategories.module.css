@@ -80,6 +80,9 @@
     position: relative;
     left: 273px;
   }
+  .fillWithLeftArrowParent:hover{
+    cursor: pointer;
+    }
 
   .phones {
     position: absolute;

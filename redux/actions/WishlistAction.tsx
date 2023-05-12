@@ -1,5 +1,3 @@
-import { AnyAction, Dispatch } from "redux";
-import { fetchWishlist } from "@/pages/api/Api";
 import { WishlistItem } from "../../components/types/Types";
 
 export const addToWishlist = (wishlistItem: WishlistItem) => {
@@ -14,3 +12,7 @@ export const setWishlistItems = (wishlistItem: WishlistItem[]) => ({
   payload: wishlistItem,
 });
 
+export const deleteFromWishlist = (productId: number) => ({
+  type: 'DELETE_FROM_WISHLIST',
+  payload: productId,
+});

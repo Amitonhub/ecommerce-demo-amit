@@ -7,23 +7,8 @@ import ExploreProducts from "@/components/HomeComponents/ExploreProducts/Explore
 import Featured from "@/components/HomeComponents/Featured/Featured";
 import Services from "@/components/HomeComponents/Services/Services";
 import styles from "./Home.module.css";
-import { useDispatch } from "react-redux";
-import { fetchWishlist } from "@/pages/api/Api";
-import { setWishlistItems } from "@/redux/actions/WishlistAction";
-import { useEffect } from "react";
 
 export default function Home() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    fetchWishlist()
-      .then((data) => {
-        dispatch(setWishlistItems(data));
-      })
-      .catch((error) => {
-        console.log("Error setting data to wishlist:", error);
-      });
-  }, []);
   return (
     <>
       <div className={styles.eCommerceHomepage}>

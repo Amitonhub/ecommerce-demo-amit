@@ -13,6 +13,10 @@ const COUNTDOWN_INTERVAL = 1000;
 
 export default function FlashSales() {
   const dispatch = useDispatch();
+  const [index, setIndex] = useState(0);
+  const { products, loading, error } = useSelector((state: RootState) => state.products);
+  const sortedProducts = products.slice().sort((a, b) => b.discountPercentage - a.discountPercentage);
+
   useEffect(() => {
     const fetchProductsAsync = async () => {
       const data = await fetchProducts();
@@ -21,9 +25,6 @@ export default function FlashSales() {
     fetchProductsAsync();
   }, [dispatch]);
 
-  const { products, loading, error } = useSelector(
-    (state: RootState) => state.products
-  );
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -66,9 +67,10 @@ export default function FlashSales() {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  const sortedProducts = products
-    .slice()
-    .sort((a, b) => b.discountPercentage - a.discountPercentage);
+
+  const handleClickLeft = () => setIndex((index - 1 + products.length) % products.length);
+  const handleClickRight = () => setIndex((index + 1) % products.length);
+  const flahProducts = [...sortedProducts.slice(index), ...sortedProducts.slice(0, index)];
 
   return (
     <>
@@ -110,17 +112,19 @@ export default function FlashSales() {
               className={styles.fillWithLeftArrow}
               alt=""
               src={leftArrow.src}
+              onClick={handleClickLeft}
             />
             <img
               className={styles.fillWithLeftArrow}
               alt=""
               src={rightArrow.src}
+              onClick={handleClickRight}
             />
           </div>
         </div>
         <div className={styles.productContainer}>
-          {sortedProducts &&
-            sortedProducts.map((product: Product) => (
+          {flahProducts &&
+            flahProducts.map((product: Product) => (
               <FlashProductCard key={product.id} product={product} />
             ))}
         </div>

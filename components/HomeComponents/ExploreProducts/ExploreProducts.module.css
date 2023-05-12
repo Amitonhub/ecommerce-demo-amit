@@ -93,6 +93,9 @@
   position: relative;
   left: 55px;
 }
+.fillWithLeftArrowParent:hover{
+  cursor: pointer;
+  }
 .discountPercent {
   position: absolute;
   top: 12px;

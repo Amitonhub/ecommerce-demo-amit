@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import styles from "./ProductCard.module.css";
 import heart from "../../../assets/HomeAssets/FlashSales/heart.png";
 import eye from "../../../assets/HomeAssets/FlashSales/eye.png";
@@ -16,25 +17,36 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
     (price / ((100 - discountPercentage) / 100)).toFixed()
   );
   const userId = useSelector((state: RootState) => state.logIn.user?.id);
+  const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
+  const nextId = useRef(1);
 
   const handleWishlist = (event: React.MouseEvent<HTMLImageElement>) => {
     if (userId) {
-      const wishlistItem: WishlistItem = { userId, product };
-      addToWishlistToApi(wishlistItem)
+      const wishlistItem: WishlistItem = {
+        userId,
+        product,
+        id: nextId.current++,
+      };
+      const isProductInWishlist = wishlist.some((item: WishlistItem) => item.userId === userId && item.product.id === product.id);
+      if (!isProductInWishlist) {
+        addToWishlistToApi(wishlistItem)
         .then((data) => {
           dispatch(addToWishlist(data));
         })
         .catch((error) => {
           console.log("Error adding to wishlist:", error);
         });
+        return;
+      }
+      
     }
   };
+  
 
   return (
     <div className={styles.cartWithFlatDiscountParent}>
       <div className={styles.cartWithFlatDiscount}></div>
       <div className={styles.cartWithFlatDiscount}>
-        <Link href={`/details/${product.id}`}>
           <div className={styles.discountPercentParent}>
             <div className={styles.frameChild} />
             <div className={styles.addToCart}>Add To Cart</div>
@@ -47,13 +59,16 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
               />
               <img className={styles.fillHeartIcon} alt="" src={eye.src} />
             </div>
+            <Link href={`/details/${product.id}`}>
             <div className={styles.akWrapper}>
               <img className={styles.akIcon} alt="" src={thumbnail} />
             </div>
-          </div>
         </Link>
+          </div>
         <div className={styles.productParent}>
+        <Link href={`/details/${product.id}`} className={styles.titleLink}>
           <div className={styles.productTitle}>{title}</div>
+          </Link>
           <div className={styles.parent}>
             <div className={styles.productTitle}>${price}</div>
             <div className={styles.price}>${originalPrice}</div>

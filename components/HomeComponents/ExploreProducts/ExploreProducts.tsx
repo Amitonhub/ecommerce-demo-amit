@@ -5,8 +5,10 @@ import rightArrow from "../../../assets/HomeAssets/FlashSales/rightArrow.png";
 import { RootState } from "@/redux/store";
 import { Product } from "@/components/types/Types";
 import ProductCard from "@/components/Common/ProductCard/ProductCard";
+import { useState } from "react";
 
 export default function ExploreProducts() {
+  const [index, setIndex] = useState(0);
   const { products, loading, error } = useSelector(
     (state: RootState) => state.products
   );
@@ -18,6 +20,10 @@ export default function ExploreProducts() {
   if (error) {
     return <div>Error: {error}</div>;
   }
+
+  const handleClickLeft = () => setIndex((index - 1 + products.length) % products.length);
+  const handleClickRight = () => setIndex((index + 1) % products.length);
+  const exploreProducts = [...products.slice(index), ...products.slice(0, index)];
 
   return (
     <>
@@ -41,17 +47,19 @@ export default function ExploreProducts() {
               className={styles.fillWithLeftArrow}
               alt=""
               src={leftArrow.src}
+              onClick={handleClickLeft}
             />
             <img
               className={styles.fillWithLeftArrow}
               alt=""
               src={rightArrow.src}
+              onClick={handleClickRight}
             />
           </div>
         </div>
         <div className={styles.productContainer}>
-          {products &&
-            products
+          {exploreProducts &&
+            exploreProducts
               .slice(0, 8)
               .map((product: Product) => (
                 <ProductCard key={product.id} product={product} />

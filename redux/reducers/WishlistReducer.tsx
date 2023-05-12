@@ -1,4 +1,4 @@
-import { Product, WishlistItem } from "@/components/types/Types";
+import { WishlistItem } from "@/components/types/Types";
 import { AnyAction } from "redux";
 
 export interface WishListState {
@@ -20,9 +20,19 @@ function wishlistReducer(state = initialState, action: AnyAction) {
         ...state,
         wishlist: [...state.wishlist, action.payload],
       };
+    case "DELETE_FROM_WISHLIST":
+      const productId = action.payload;
+      const updatedWishlist = state.wishlist.filter(
+        (item) => item.product.id !== productId
+      );
+      return {
+        ...state,
+        wishlist: updatedWishlist,
+      };
     default:
       return state;
   }
 }
+
 
 export default wishlistReducer;

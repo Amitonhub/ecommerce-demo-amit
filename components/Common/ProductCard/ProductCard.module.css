@@ -30,6 +30,9 @@
   justify-content: flex-start;
   gap: 8px;
 }
+.fillHeartParent:hover {
+  cursor: pointer;
+}
 .g922500x5001Icon {
   position: absolute;
   top: calc(50% - 76px);
@@ -208,6 +211,10 @@
   transition: all 0.4s ease-in-out;
 }
 
-.discountPercentParent:hover .addToCart{
+.discountPercentParent:hover .addToCart {
   opacity: 1;
+}
+.titleLink {
+  color: black;
+  text-decoration: none;
 }
