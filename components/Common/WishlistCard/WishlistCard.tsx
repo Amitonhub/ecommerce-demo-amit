@@ -1,11 +1,14 @@
 import styles from "./WishlistCard.module.css";
-import { WishlistCardProps } from "@/components/types/Types";
+import { Cart, WishlistCardProps } from "@/components/types/Types";
 import deleteProduct from "../../../assets/Wishlist/delete.png";
 import FiveStar from "../FiveStar/FiveStar";
 import Link from "next/link";
-import { deleteFromWishlistToApi } from "@/pages/api/Api";
-import { useDispatch } from "react-redux";
+import { addToCartToApi, deleteFromWishlistToApi } from "@/pages/api/Api";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteFromWishlist } from "@/redux/actions/WishlistAction";
+import { addToCart } from "@/redux/actions/CartAction";
+import { RootState } from "@/redux/store";
+import { useRef } from "react";
 
 const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
   const dispatch = useDispatch();
@@ -13,10 +16,38 @@ const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
   const originalPrice = parseInt(
     (price / ((100 - discountPercentage) / 100)).toFixed()
   );
+  const userId = useSelector((state: RootState) => state.logIn.user?.id);
+  const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
+  const cart = useSelector((state: RootState) => state.cart.cart);
+  const nextId = useRef(1);
 
   const handleDeleteFromWishlist = async () => {
     await deleteFromWishlistToApi(item.id)
     dispatch(deleteFromWishlist(item.product.id));
+  };
+
+  const handleCart = (event: React.MouseEvent<HTMLImageElement>) => {
+    if (userId) {
+      const CartItem: Cart = {
+        userId,
+        product,
+        id: nextId.current++,
+      };
+      const isProductInWishlist = cart.some((item: Cart) => item.userId === userId && item.product.id === product.id);
+      if (!isProductInWishlist) {
+        alert("product added to Cart!!")
+        addToCartToApi(CartItem)
+        .then((data) => {
+          dispatch(addToCart(data));
+        })
+        .catch((error) => {
+          console.log("Error adding to cart:", error);
+        });
+        return;
+      }else{
+        alert("Product is already in the Cart!!")
+      }
+    }
   };
  
   return (
@@ -25,8 +56,8 @@ const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
       <div className={styles.cartWithFlatDiscount}></div>
       <div className={styles.cartWithFlatDiscount}>
         <div className={styles.discountPercentParent}>
-          <div className={styles.frameChild} />
-          <div className={styles.addToCart}>Add To Cart</div>
+          <div className={styles.frameChild} onClick={handleCart}/>
+          <div className={styles.addToCart} onClick={handleCart}>Add To Cart</div>
           <div className={styles.fillHeartParent}>
             <img
               className={styles.fillHeartIcon}

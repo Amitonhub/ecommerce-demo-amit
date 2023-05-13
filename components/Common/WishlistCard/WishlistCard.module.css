@@ -137,6 +137,7 @@
   background-color: #000;
   height: 41px;
   opacity: 0;
+  cursor: pointer;
 }
 .addToCart {
   position: absolute;
@@ -147,6 +148,7 @@
   font-weight: 500;
   color: #fff;
   opacity: 0;
+  cursor: pointer;
 }
 .akIcon {
   position: absolute;

@@ -30,7 +30,7 @@ function wishlistReducer(state = initialState, action: AnyAction) {
         wishlist: updatedWishlist,
       };
     default:
-      return state;
+      return state as WishListState;
   }
 }
 

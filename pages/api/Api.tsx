@@ -1,4 +1,4 @@
-import { LogIn, WishlistItem } from "@/components/types/Types";
+import { Cart, LogIn, WishlistItem } from "@/components/types/Types";
 import axios from "axios";
 
 export const fetchLogInData = async (data: LogIn) => {
@@ -74,3 +74,37 @@ export const deleteFromWishlistToApi = async (wishlistItemId: number) => {
     return null;
   }
 };
+
+export const addToCartToApi = async (cartItem: Cart) => {
+  const response = await axios.get(
+    "https://645b80a099b618d5f31d12f9.mockapi.io/cart"
+  );
+  const cartData: Cart[] = response.data;
+  const exists = cartData.some(
+    (item) =>
+    item.id === cartItem.id &&
+      item.userId === cartItem.userId &&
+      item.product.id === cartItem.product.id
+  );
+  if (!exists) {
+    const postResponse = await axios.post(
+      "https://645b80a099b618d5f31d12f9.mockapi.io/cart",
+      cartItem
+    );
+    return postResponse.data;
+  } else {
+    return null;
+  }
+};
+
+export async function fetchCart(): Promise<Cart[]> {
+  const response = await axios.get(
+    "https://645b80a099b618d5f31d12f9.mockapi.io/cart" 
+  );
+  const data = response.data;
+  return data.map((item: Cart) => ({
+    id: item.id,
+    userId: item.userId,
+    product: item.product,
+  }));
+}

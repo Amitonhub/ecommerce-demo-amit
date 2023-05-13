@@ -5,7 +5,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 7px;
 }
 .header,
 .searchComponentSetParent {
@@ -106,8 +106,14 @@
 .wishlistIcon {
   overflow: hidden;
 }
-.cart1WithBuy,
-.wishlistIcon {
+.cart {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  top: 8px;
+  left: 5px;
+}
+.user{
   position: relative;
   width: 32px;
   height: 32px;
@@ -118,6 +124,7 @@
   width: 100%;
   position: relative;
   background: #c6c2c2;
+  bottom: 12px;
 }
 .vectorIcon {
   position: absolute;
@@ -143,13 +150,25 @@
   overflow: hidden;
   max-height: 100%;
 }
-.div {
+.cartBadge {
+  position: relative;
+  right: 9px;
+  top: 1px;
+}
+.wishCount {
   position: absolute;
   width: 43.75%;
   bottom: 0%;
   left: 32%;
   line-height: 18px;
   display: inline-block;
+  color: white;
+}
+.cartCount {
+  width: fit-content;
+  position: relative;
+  bottom: 24px;
+  left: 28px;
   color: white;
 }
 .ellipseParent {
@@ -176,6 +195,12 @@
   text-decoration: none;
   color: #000000;
 }
-.link:hover{
+.link:hover {
   color: #000000;
+}
+.cartDiv{
+  cursor: pointer;
+}
+.wishlist{
+  cursor: pointer;
 }

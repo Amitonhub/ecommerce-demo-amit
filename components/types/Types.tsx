@@ -33,11 +33,22 @@ export interface ProductProps {
 }
 export interface WishlistItem {
   id: number;
-  userId?: number;
+  userId: number;
   product: Product;
 }
 
 export interface WishlistCardProps {
+  product: Product;
+  item: WishlistItem;
+}
+
+export interface Cart {
+  id: number;
+  userId?: number;
+  product: Product;
+  quantity: number;
+}
+export interface CartItemsProps {
   product: Product;
   item: WishlistItem;
 }

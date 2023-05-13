@@ -2,18 +2,20 @@ import React from "react";
 import styles from "./Navbar.module.css";
 import search from "../../assets/search.png";
 import user from "../../assets/user.png";
-import cart from "../../assets/cart.png";
+import cartImg from "../../assets/cart.png";
 import navHeart from '../../assets/navheart.png'
 import wishBadge from '../../assets/wishBadge.png'
 import Link from "next/link";
 import { RootState } from "@/redux/store";
 import { useSelector } from "react-redux";
-import { WishlistItem } from "../types/Types";
+import { Cart, WishlistItem } from "../types/Types";
 
 export default function Navbar() {
   const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
+  const cart = useSelector((state: RootState) => state.cart.cart);
   const userId = useSelector((state: RootState) => state.logIn.user?.id)
   const filteredWishlist = wishlist.filter((item: WishlistItem) => item.userId === userId);
+  const filteredCart = cart.filter((item: Cart) => item.userId === userId);
   return (
     <>
       <div className={styles.header}>
@@ -59,13 +61,21 @@ export default function Navbar() {
                   alt=""
                   src={wishBadge.src}
                 />
-                <div className={styles.div}>{filteredWishlist.length}</div>
+                <div className={styles.wishCount}>{filteredWishlist.length}</div>
               </div>
               </Link>
             </div>
+            <div>
             <Link className={styles.link} href={`/cart`}>
-            <img className={styles.cart1WithBuy} alt="" src={cart.src} />
+            <img className={styles.cart} alt="" src={cartImg.src} />
             </Link>
+            <img
+                  className={styles.cartBadge}
+                  alt=""
+                  src={wishBadge.src}
+                />
+                <div className={styles.cartCount}>{filteredCart.length}</div>
+            </div>
             <img className={styles.wishlistIcon} alt="" src={user.src} />
           </div>
         </div>

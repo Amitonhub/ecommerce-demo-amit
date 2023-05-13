@@ -147,6 +147,7 @@
   font-weight: 500;
   color: #fff;
   opacity: 0;
+  cursor: pointer;
 }
 .akIcon {
   position: absolute;
@@ -209,6 +210,7 @@
   opacity: 1;
   transform: translateY(-100%);
   transition: all 0.4s ease-in-out;
+  cursor: pointer;
 }
 
 .discountPercentParent:hover .addToCart {
