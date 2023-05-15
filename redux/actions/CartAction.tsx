@@ -16,3 +16,4 @@ export const deleteFromCart = (productId: number) => ({
   type: 'DELETE_FROM_CART',
   payload: productId,
 });
+

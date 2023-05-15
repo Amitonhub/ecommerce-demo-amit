@@ -29,6 +29,15 @@ function cartReducer(state = initialState, action: AnyAction) {
         ...state,
         cart: updatedCart,
       };
+      case "CHANGE_CART_ITEM_QUANTITY":
+        const { id, quantity } = action.payload;
+        const updatedCartWithNewQuantity = state.cart.map((item) =>
+          item.product.id === id ? { ...item, quantity: quantity } : item
+        );
+        return {
+          ...state,
+          cart: updatedCartWithNewQuantity,
+        };
     default:
       return state as CartState;
   }

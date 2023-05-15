@@ -102,6 +102,7 @@
   height: 24px;
   flex-shrink: 0;
   overflow: hidden;
+  cursor: pointer;
 }
 .wishlistIcon {
   overflow: hidden;
@@ -113,7 +114,7 @@
   top: 8px;
   left: 5px;
 }
-.user{
+.user {
   position: relative;
   width: 32px;
   height: 32px;
@@ -170,6 +171,7 @@
   bottom: 24px;
   left: 28px;
   color: white;
+  cursor: pointer;
 }
 .ellipseParent {
   position: absolute;
@@ -198,9 +200,76 @@
 .link:hover {
   color: #000000;
 }
-.cartDiv{
+.cartDiv {
   cursor: pointer;
 }
-.wishlist{
+.wishlist {
   cursor: pointer;
+}
+.userIcon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+  right: 4px;
+  cursor: pointer;
+}
+.dropDownOptions {
+  position: relative;
+  line-height: 21px;
+  cursor: pointer;
+}
+.myAccountDrop {
+  position: relative;
+  line-height: 21px;
+  right: 8px;
+  cursor: pointer;
+}
+.userParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.iconMallbag {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.iconReviews {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.frameParent {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 13px;
+}
+.accountDropdown {
+  position: absolute;
+  height: 208px;
+  width: 225px;
+  top: 116px;
+  left: 1159px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  font-size: 14px;
+  color: #fafafa;
+  font-family: system-ui;
+  z-index: 999;
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(75px);
 }

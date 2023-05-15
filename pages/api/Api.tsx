@@ -1,4 +1,4 @@
-import { Cart, LogIn, WishlistItem } from "@/components/types/Types";
+import { Cart, LogIn, Person, WishlistItem } from "@/components/types/Types";
 import axios from "axios";
 
 export const fetchLogInData = async (data: LogIn) => {
@@ -103,8 +103,44 @@ export async function fetchCart(): Promise<Cart[]> {
   );
   const data = response.data;
   return data.map((item: Cart) => ({
+    quantity: item.quantity,
     id: item.id,
     userId: item.userId,
     product: item.product,
   }));
+}
+export const deleteFromCartToApi = async (carttemId: number) => {
+  try {
+    console.log('delete')  
+    const response = await axios.delete(
+      `https://645b80a099b618d5f31d12f9.mockapi.io/cart/${carttemId}`
+    );
+    console.log('deleted successfully')
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+export const updateCartItemQuantity = async (cartItemId: number, newQuantity: number) => {
+  try {
+    const response = await axios.put(
+      `https://645b80a099b618d5f31d12f9.mockapi.io/cart/${cartItemId}`,
+      { quantity: newQuantity }
+    );
+    console.log('updated successfully')
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+export async function getUserData(userId?: number): Promise<Person | undefined> {
+  if (!userId) {
+    return undefined;
+  }
+
+  const response = await axios.get(`https://dummyjson.com/users/${userId}`);
+  return response.data;
 }

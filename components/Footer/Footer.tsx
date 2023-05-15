@@ -11,6 +11,7 @@ import instagram from "../../assets/iconinstagram.png";
 import linkedin from "../../assets/iconlinkedin.png";
 import sendEmail from "../../assets/iconsend.png";
 import { Row } from "react-bootstrap";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -68,10 +69,18 @@ export default function Footer() {
               <div className={styles.support}>Account</div>
               <div className={styles.bijoySaraniDhakaDh1515Parent}>
                 <div className={styles.exclusivegmailcom}>My Account</div>
+                <Link href={'/login'} className={styles.link}>
                 <div className={styles.exclusivegmailcom}>Login / Register</div>
+                </Link>
+                <Link href={'/cart'} className={styles.link}>
                 <div className={styles.exclusivegmailcom}>Cart</div>
+                </Link>
+                <Link href={'/wishlist'} className={styles.link}>
                 <div className={styles.exclusivegmailcom}>Wishlist</div>
+                </Link>
+                <Link href={'/'} className={styles.link}>
                 <div className={styles.exclusivegmailcom}>Shop</div>
+                </Link>
               </div>
             </div>
             <div className={styles.frameContainer}>

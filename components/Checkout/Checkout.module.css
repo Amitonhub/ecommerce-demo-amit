@@ -1,0 +1,359 @@
+.checkoutChild {
+  position: absolute;
+  top: 142px;
+  left: 0px;
+  width: 1440px;
+  height: 0.5px;
+}
+.account {
+  position: relative;
+  line-height: 21px;
+}
+.roadmapChild {
+  position: relative;
+  width: 6.89px;
+  height: 12.2px;
+  opacity: 0.5;
+}
+.roadmap {
+  position: absolute;
+  top: 64px;
+  left: 197px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  font-size: 14px;
+}
+.billingDetails {
+  position: relative;
+  letter-spacing: 0.04em;
+  line-height: 30px;
+  font-weight: 500;
+}
+.billingDetailsWrapper {
+  position: absolute;
+  top: 157px;
+  left: 195px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 36px;
+  font-family: system-ui;
+}
+.span {
+  color: #db4444;
+}
+.firstName {
+  position: relative;
+  line-height: 24px;
+  opacity: 0.4;
+}
+.frameChild {
+  position: relative;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  width: 470px;
+  height: 50px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: none;
+  padding: 10px;
+  color: #808080;
+}
+.frameChild:focus {
+  outline: none;
+  color: #808080;
+}
+.frameChild::placeholder {
+  color: #808080;
+}
+.firstNameParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.frameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 32px;
+  position: relative;
+  left: 62px;
+  font-family: system-ui;
+}
+.iconCheckbox {
+  position: relative;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.saveThisInformation {
+  position: relative;
+  line-height: 24px;
+}
+.cod {
+  position: relative;
+  line-height: 24px;
+  bottom: 25px;
+  left: 27px;
+}
+.bank {
+  position: relative;
+  line-height: 24px;
+  bottom: 7px;
+  right: 1px;
+}
+.iconCheckboxParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  position: relative;
+  top: 6px;
+}
+.frameGroup {
+  position: absolute;
+  top: 231px;
+  left: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+}
+.g922500x5001Icon {
+  position: absolute;
+  height: 78.19%;
+  width: 90.53%;
+  top: 11.11%;
+  right: 3.92%;
+  bottom: 10.7%;
+  left: 5.56%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.gamepadCartSmall {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.price {
+  position: relative;
+  width: fit-content;
+  bottom: 23px;
+  left: 299px;
+}
+.gamepadCartSmallParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+}
+.g27cq4500x5001Icon {
+  position: absolute;
+  height: 72.22%;
+  width: 92.59%;
+  top: 14.81%;
+  right: 3.7%;
+  bottom: 12.96%;
+  left: 3.7%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.lcdMonitorGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 204px;
+}
+.monitorCartSmallParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.frameParent6 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 32px;
+}
+.subtotalParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 307px;
+}
+.underlineIcon1 {
+  position: relative;
+  width: 422px;
+  height: 1px;
+  opacity: 0.4;
+}
+.shippingParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 307px;
+}
+.totalParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 331px;
+}
+.frameParent7 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.radioButtonIcon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.image32Icon {
+  position: relative;
+  height: 28px;
+  width: 192px;
+  top: 20%;
+  right: 5%;
+  bottom: 20%;
+  left: 5%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.image30Icon {
+  position: absolute;
+  height: 40%;
+  width: 90%;
+  top: 30%;
+  right: 5%;
+  bottom: 30%;
+  left: 5%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.image31Icon {
+  position: absolute;
+  height: 90%;
+  width: 93.33%;
+  top: 5%;
+  right: 3.33%;
+  bottom: 5%;
+  left: 3.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.image33Icon {
+  position: absolute;
+  height: 65%;
+  width: 93.33%;
+  top: 17.5%;
+  right: 3.33%;
+  bottom: 17.5%;
+  left: 3.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.frameParent11 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 155px;
+}
+.couponCodeWrapper {
+  position: relative;
+  border-radius: 4px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 300px;
+  height: 56px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-color: gray;
+  padding: 10px;
+}
+.viewAllProducts {
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
+}
+.button {
+  border-radius: 4px;
+  background-color: #db4444;
+  display: flex;
+  flex-direction: row;
+  padding: 16px 48px;
+  align-items: center;
+  justify-content: center;
+  color: #fafafa;
+}
+.couponCode {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.frameParent5 {
+  position: relative;
+  top: 263px;
+  left: 840px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 32px;
+  font-family: system-ui;
+}
+.checkout {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 1351px;
+  text-align: left;
+  font-size: 16px;
+  color: #000;
+  font-family: system-ui;
+}
+.link {
+  text-decoration: none;
+  color: gray;
+}
+.link:hover {
+  color: gray;
+}

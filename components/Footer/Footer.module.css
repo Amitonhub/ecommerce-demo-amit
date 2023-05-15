@@ -229,3 +229,6 @@
   color: #fff;
   font-family: system-ui;
 }
+.link{
+  text-decoration: none;
+}

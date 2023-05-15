@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styles from "./DetailsPage.module.css";
 import slash from "../../assets/DetalisPage/slash.png";
 import heart from "../../assets/DetalisPage/heart.png";
@@ -9,44 +9,126 @@ import returnProduct from "../../assets/DetalisPage/return.png";
 import underline from "../../assets/DetalisPage/underline.png";
 import blueColor from "../../assets/DetalisPage/blueColor.png";
 import redColor from "../../assets/DetalisPage/redColor.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import Link from "next/link";
 import FiveStar from "@/components/Common/FiveStar/FiveStar";
+import { addToWishlistToApi, updateCartItemQuantity } from "@/pages/api/Api";
+import { addToWishlist } from "@/redux/actions/WishlistAction";
+import { WishlistItem } from "../types/Types";
+import Swal from "sweetalert2";
 
 export default function DetailsPage() {
-  const product = useSelector((state: RootState) => state.productDetails.product);
+  const dispatch = useDispatch();
+  const product = useSelector(
+    (state: RootState) => state.productDetails.product
+  );
   const rating = Math.round(product.rating);
+  const cart = useSelector((state: RootState) => state.cart.cart);
+  const [quantity, setQuantity] = useState(1);
 
+  const userId = useSelector((state: RootState) => state.logIn.user?.id);
+  const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
+  const nextId = useRef(1);
+
+  const handleWishlist = (event: React.MouseEvent<HTMLImageElement>) => {
+    if (userId) {
+      const wishlistItem: WishlistItem = {
+        userId,
+        product,
+        id: nextId.current++,
+      };
+      const isProductInWishlist = wishlist.some(
+        (item: WishlistItem) =>
+          item.userId === userId && item.product.id === product.id
+      );
+      if (!isProductInWishlist) {
+        Swal.fire({
+          title: "Added!",
+          text: "this product is added to wishlist!",
+          icon: "success",
+        });
+        addToWishlistToApi(wishlistItem)
+          .then((data) => {
+            dispatch(addToWishlist(data));
+          })
+          .catch((error) => {
+            console.log("Error adding to wishlist:", error);
+          });
+        return;
+      } else {
+        Swal.fire({
+          title: "Oops!",
+          text: "Product is Already in wishlist!",
+          icon: "error",
+        });
+      }
+    }
+  };
+  const handleIncrement = async () => {
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+    await updateCartItemQuantity(product.id, newQuantity);
+  };
+
+  const handleDecrement = async () => {
+    if (quantity > 1) {
+      const newQuantity = quantity - 1;
+      setQuantity(newQuantity);
+      await updateCartItemQuantity(product.id, newQuantity);
+    }
+  };
 
   return (
     <>
       <div className={styles.productDetailsPage}>
         <div className={styles.details}>
           <div className={styles.roadmap}>
-          <Link className={styles.link} href={`/`}>
-            <div className={styles.account}>Home</div>
+            <Link className={styles.link} href={`/`}>
+              <div className={styles.account}>Home</div>
             </Link>
             <img className={styles.roadmapChild} alt="" src={slash.src} />
             <div className={styles.account}>{product.category}</div>
-            <div className={styles.nothing1}>View Cart</div>
+            <Link href={"/cart"}>
+              <div className={styles.nothing1}>View Cart</div>
+            </Link>
             <img className={styles.roadmapChild} alt="" src={slash.src} />
             <div className={styles.english}>{product.title}</div>
           </div>
           <div className={styles.image63Wrapper}>
-            <img className={styles.image63Icon} alt="" src={product.thumbnail} />
+            <img
+              className={styles.image63Icon}
+              alt=""
+              src={product.thumbnail}
+            />
           </div>
           <div className={styles.image57Wrapper}>
-            <img className={styles.image57Icon} alt="" src={product.images?.[0]} />
+            <img
+              className={styles.image57Icon}
+              alt=""
+              src={product.images?.[0]}
+            />
           </div>
           <div className={styles.image58Wrapper}>
-            <img className={styles.image58Icon} alt="" src={product.images?.[1]} />
+            <img
+              className={styles.image58Icon}
+              alt=""
+              src={product.images?.[1]}
+            />
           </div>
           <div className={styles.image61Wrapper}>
-            <img className={styles.image61Icon} alt="" src={product.images?.[2]} />
+            <img
+              className={styles.image61Icon}
+              alt=""
+              src={product.images?.[2]}
+            />
           </div>
           <div className={styles.image59Wrapper}>
-            <img className={styles.image59Icon} alt="" src={product.images?.[3]} />
+            <img
+              className={styles.image59Icon}
+              alt=""
+              src={product.images?.[3]}
+            />
           </div>
           <div className={styles.havicHvG92}>{product.title}</div>
           <div className={styles.div}>${product.price}</div>
@@ -57,9 +139,9 @@ export default function DetailsPage() {
               <div className={styles.inStock}>In Stock</div>
             </div>
           </div>
-          <div
-            className={styles.playstation5Controller}
-          >{product.description}</div>
+          <div className={styles.playstation5Controller}>
+            {product.description}
+          </div>
           <div className={styles.coloursParent}>
             <div className={styles.colours}>Colours:</div>
             <div className={styles.twoColors}>
@@ -97,19 +179,41 @@ export default function DetailsPage() {
           </div>
           <img className={styles.underlineIcon} alt="" src={underline.src} />
           <div className={styles.frameDiv}>
-            <img className={styles.frameItem} alt="" src={minus.src} />
+            <img
+              className={styles.frameItem}
+              alt=""
+              src={minus.src}
+              onClick={handleDecrement}
+            />
             <div className={styles.wrapper}>
-              <div className={styles.div1}>2</div>
+              <div className={styles.div1}>
+                <input
+                  className={styles.quantity}
+                  type="number"
+                  name="quantity"
+                  id="quantity"
+                  value={quantity}
+                  onChange={(e) => setQuantity(Number(e.target.value))}
+                />
+              </div>
             </div>
-            <img className={styles.frameInner} alt="" src={plus.src} />
+            <img
+              className={styles.frameInner}
+              alt=""
+              src={plus.src}
+              onClick={handleIncrement}
+            />
           </div>
-          <div className={styles.button}>
-            <div className={styles.addToCart}>Buy Now</div>
-          </div>
+          <Link href={"/checkout"}>
+            <div className={styles.button}>
+              <div className={styles.addToCart}>Buy Now</div>
+            </div>
+          </Link>
           <img
             className={styles.productDetailsPageItem}
             alt=""
             src={heart.src}
+            onClick={handleWishlist}
           />
           <div className={styles.underlineParent}>
             <img className={styles.underlineIcon1} alt="" src={underline.src} />

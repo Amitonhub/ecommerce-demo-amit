@@ -8,6 +8,44 @@ export interface LogIn {
   token: string;
   username: string;
   password: string;
+  phone: string | number;
+}
+
+export interface Person {
+  id: number;
+  firstName: string;
+  lastName: string;
+  age: number;
+  gender: string;
+  email: string;
+  phone: string;
+  username: string;
+  password: string;
+  address: {
+    address: string;
+    city: string;
+    coordinates: {
+      lat: number;
+      lng: number;
+    };
+    postalCode: string;
+    state: string;
+  };
+  company: {
+    address: {
+      address: string;
+      city: string;
+      coordinates: {
+        lat: number;
+        lng: number;
+      };
+      postalCode: string;
+      state: string;
+    };
+    department: string;
+    name: string;
+    title: string;
+  };
 }
 
 export interface FiveStarProps {
@@ -50,5 +88,5 @@ export interface Cart {
 }
 export interface CartItemsProps {
   product: Product;
-  item: WishlistItem;
+  item: Cart;
 }

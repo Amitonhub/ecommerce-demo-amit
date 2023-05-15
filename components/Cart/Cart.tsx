@@ -3,11 +3,15 @@ import styles from './Cart.module.css'
 import slash from "../../assets/DetalisPage/slash.png";
 import totalUnderline from '../../assets/Cart/totalUnderline.png'
 import { RootState } from "@/redux/store";
-import { useSelector } from "react-redux";
-import { Cart, WishlistItem } from "../types/Types";
+import { useDispatch, useSelector } from "react-redux";
+import { Cart } from "../types/Types";
 import CartItems from "./CartItems/CartItems";
+import { setCartItems } from "@/redux/actions/CartAction";
+import { fetchCart } from "@/pages/api/Api";
+import Link from "next/link";
 
 export default function Cart() {
+  const dispatch = useDispatch()
   const cart = useSelector((state: RootState) => state.cart.cart);
   const userId = useSelector((state: RootState) => state.logIn.user?.id);
   const filteredCart = cart.filter(
@@ -15,9 +19,19 @@ export default function Cart() {
   );
   let totalPrice = 0;
   filteredCart.forEach((item: Cart) => {
-    totalPrice += item.product.price;
-    // totalPrice += item.product.price * item.quantity;
+    totalPrice += item.product.price * item.quantity;
   });
+
+  const handleUpdateCart = () => {
+      fetchCart()
+      .then((data) => {
+        dispatch(setCartItems(data));
+      })
+      .catch((error) => {
+        console.log("Error setting data to Cart:", error);
+      });
+  }
+
   return <>
    <div className={styles.cart}>
       <div className={styles.frameGroup}>
@@ -32,7 +46,7 @@ export default function Cart() {
               </div>
             </div>
             {filteredCart &&
-            filteredCart.map((item: WishlistItem) => (
+            filteredCart.map((item: Cart) => (
               <CartItems
                 key={item.product.id}
                 product={item.product}
@@ -44,7 +58,7 @@ export default function Cart() {
             <div className={styles.returnButton}>
               <div className={styles.viewAllProducts}>{`Return To Shop`}</div>
             </div>
-            <div className={styles.updateButton}>
+            <div className={styles.updateButton} onClick={() => handleUpdateCart()}>
               <div className={styles.viewAllProducts}>{`Update Cart`}</div>
             </div>
           </div>
@@ -72,9 +86,11 @@ export default function Cart() {
               <div className={styles.product}>{`Total:`}</div>
               <div className={styles.product}>{`$ `}{totalPrice}</div>
             </div>
+            <Link href={'/checkout'}>
             <div className={styles.button3}>
               <div className={styles.viewAllProducts}>{`Procees to checkout`}</div>
             </div>
+            </Link>
             <img
               className={styles.underlineIcon}
               alt=""

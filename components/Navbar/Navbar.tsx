@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import search from "../../assets/search.png";
 import user from "../../assets/user.png";
@@ -9,8 +9,14 @@ import Link from "next/link";
 import { RootState } from "@/redux/store";
 import { useSelector } from "react-redux";
 import { Cart, WishlistItem } from "../types/Types";
+import dropAccount from '../../assets/Navbar/dropAccount.png'
+import cancellation from '../../assets/Navbar/cancellation.png'
+import logOut from '../../assets/Navbar/logOut.png'
+import myOrders from '../../assets/Navbar/myOrders.png'
+import reviews from '../../assets/Navbar/reviews.png'
 
 export default function Navbar() {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
   const cart = useSelector((state: RootState) => state.cart.cart);
   const userId = useSelector((state: RootState) => state.logIn.user?.id)
@@ -68,15 +74,46 @@ export default function Navbar() {
             <div>
             <Link className={styles.link} href={`/cart`}>
             <img className={styles.cart} alt="" src={cartImg.src} />
-            </Link>
             <img
                   className={styles.cartBadge}
                   alt=""
                   src={wishBadge.src}
                 />
                 <div className={styles.cartCount}>{filteredCart.length}</div>
+                </Link>
             </div>
-            <img className={styles.wishlistIcon} alt="" src={user.src} />
+            <img
+              className={styles.dropdownIcon}
+              alt=""
+              src={user.src}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            />
+            {isDropdownOpen && (
+             <div className={styles.accountDropdown}>
+             <div className={styles.frameParent}>
+               <div className={styles.userParent}>
+                 <img className={styles.userIcon} alt="" src={dropAccount.src} />
+                 <div className={styles.myAccountDrop}>Manage My Account</div>
+               </div>
+               <div className={styles.userParent}>
+                 <img className={styles.iconMallbag} alt="" src={myOrders.src} />
+                 <div className={styles.dropDownOptions}>My Order</div>
+               </div>
+               <div className={styles.userParent}>
+                 <img className={styles.iconMallbag} alt="" src={cancellation.src} />
+                 <div className={styles.dropDownOptions}>My Cancellations</div>
+               </div>
+               <div className={styles.userParent}>
+                 <img className={styles.iconReviews} alt="" src={reviews.src} />
+                 <div className={styles.dropDownOptions}>My Reviews</div>
+               </div>
+               <div className={styles.userParent}>
+                 <img className={styles.iconMallbag} alt="" src={logOut.src} />
+                 <div className={styles.dropDownOptions}>Logout</div>
+               </div>
+             </div>
+           </div>
+            )}
           </div>
         </div>
       </div>

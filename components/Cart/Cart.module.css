@@ -10,326 +10,336 @@
   font-family: system-ui;
   left: 60px;
   bottom: 148px;
-  }
-  .cartChild {
-    position: absolute;
-    top: 142px;
-    left: 0px;
-    width: 1440px;
-    height: 0.5px;
-  }
-  .product {
-    position: relative;
-    line-height: 24px;
-  }
-  .productParent {
-    position: absolute;
-    top: 24px;
-    left: 40px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 284px;
-  }
-  .cartMainSection {
-    position: relative;
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05);
-    width: 1170px;
-    height: 72px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  .frameGroup {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 80px;
-    font-size: 16px;
-  }
-  .frameContainer {
-    position: relative;
-    margin-top: 321px;
-    margin-left: 135px;
-  }
-  .cartMainSectionParent {
-    position: relative;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 40px;
-    display: flex;
-  }
-  .cartSection {
-    position: relative;
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05);
-    width: 1170px;
-    height: 102px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  .price {
-    position: absolute;
-    top: 39px;
-    left: 380px;
-    line-height: 24px;
-  }
-  .subTotal {
-    position: absolute;
-    top: 39px;
-    left: 1053px;
-    line-height: 24px;
-  }
-  .dropUpSmallIcon {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  .dropUpSmallParent {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-  .parent {
-    position: absolute;
-    top: 6px;
-    left: 12px;
-    width: 48px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 16px;
-  }
-  .quantity1 {
-    position: absolute;
-    top: 27.5px;
-    left: 690px;
-    border-radius: 4px;
-    border: 1.5px solid rgba(0, 0, 0, 0.4);
-    box-sizing: border-box;
-    width: 75px;
-    height: 47px;
-    overflow: hidden;
-  }
-  .gIcon {
-    position: absolute;
-    height: 72.22%;
-    width: 92.59%;
-    top: 14.81%;
-    right: 3.7%;
-    bottom: 12.96%;
-    left: 3.7%;
-    max-width: 100%;
-    overflow: hidden;
-    max-height: 100%;
-    object-fit: cover;
-  }
-  .productCartSmall {
-    position: absolute;
-    top: calc(50% - 27px);
-    left: calc(50% - 545px);
-    width: 54px;
-    height: 54px;
-    overflow: hidden;
-  }
-  .productTitle {
-    position: absolute;
-    top: 39px;
-    left: 114px;
-    line-height: 24px;
-  }
-  .iconCancel {
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    width: 24px;
-    height: 24px;
-    overflow: hidden;
-  }
-  .viewAllProducts {
-    position: relative;
-    line-height: 24px;
-    font-weight: 500;
-  }
-  .returnButton {
-    border-radius: 4px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: row;
-    padding: 16px 48px;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  .updateButton {
-    border-radius: 4px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: row;
-    padding: 16px 48px;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    left: 20px;
-  }
-  .buttonParent {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 757px;
-    top: 24px;
-    position: relative;
-  }
-  .frameDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: flex-start;
-    gap: 16px;
-  }
-  .instanceParent {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 173px;
-    position: relative;
-    left: 135px;
-  }
-  .cartTotalParent {
-    position: relative;
-    border-radius: 4px;
-    border: 1.5px solid #000;
-    box-sizing: border-box;
-    width: 470px;
-    height: 324px;
-    overflow: hidden;
-    flex-shrink: 0;
-    left: 20px;
-  }
-  .couponCode {
-    position: absolute;
-    top: calc(50% - 12px);
-    left: 24px;
-    line-height: 24px;
-    opacity: 0.5;
-  }
-  .couponCodeWrapper {
-    position: relative;
-    border-radius: 4px;
-    border: 1px solid #000;
-    box-sizing: border-box;
-    width: 300px;
-    height: 56px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  .button2 {
-    border-radius: 4px;
-    background-color: #db4444;
-    display: flex;
-    flex-direction: row;
-    padding: 16px 48px;
-    align-items: center;
-    justify-content: center;
-    color: #fafafa;
-  }
+}
+.cartChild {
+  position: absolute;
+  top: 142px;
+  left: 0px;
+  width: 1440px;
+  height: 0.5px;
+}
+.product {
+  position: relative;
+  line-height: 24px;
+}
+.productParent {
+  position: absolute;
+  top: 24px;
+  left: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 284px;
+}
+.cartMainSection {
+  position: relative;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05);
+  width: 1170px;
+  height: 72px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.frameGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 80px;
+  font-size: 16px;
+}
+.frameContainer {
+  position: relative;
+  margin-top: 321px;
+  margin-left: 135px;
+}
+.cartMainSectionParent {
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+  display: flex;
+}
+.cartSection {
+  position: relative;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05);
+  width: 1170px;
+  height: 102px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.price {
+  position: absolute;
+  top: 39px;
+  left: 380px;
+  line-height: 24px;
+}
+.subTotal {
+  position: absolute;
+  top: 39px;
+  left: 1053px;
+  line-height: 24px;
+}
+.dropUpSmallIcon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.dropUpSmallParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  right: 166px;
+}
+.quantity {
+  border: none;
+}
+.parent {
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  width: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.quantity1 {
+  position: absolute;
+  top: 27.5px;
+  left: 690px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  width: 75px;
+  height: 47px;
+  overflow: hidden;
+}
+.gIcon {
+  position: absolute;
+  height: 72.22%;
+  width: 92.59%;
+  top: 14.81%;
+  right: 3.7%;
+  bottom: 12.96%;
+  left: 3.7%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.productCartSmall {
+  position: absolute;
+  top: calc(50% - 27px);
+  left: calc(50% - 545px);
+  width: 54px;
+  height: 54px;
+  overflow: hidden;
+}
+.productTitle {
+  position: absolute;
+  top: 39px;
+  left: 114px;
+  line-height: 24px;
+}
+.iconCancel {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.viewAllProducts {
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.returnButton {
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  padding: 16px 48px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+.updateButton {
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  padding: 16px 48px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 20px;
+  cursor: pointer;
+}
+.buttonParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 757px;
+  top: 24px;
+  position: relative;
+}
+.frameDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.instanceParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 173px;
+  position: relative;
+  left: 135px;
+}
+.cartTotalParent {
+  position: relative;
+  border-radius: 4px;
+  border: 1.5px solid #000;
+  box-sizing: border-box;
+  width: 470px;
+  height: 324px;
+  overflow: hidden;
+  flex-shrink: 0;
+  left: 20px;
+}
+.couponCode {
+  position: absolute;
+  top: calc(50% - 12px);
+  left: 24px;
+  line-height: 24px;
+  opacity: 0.5;
+}
+.couponCodeWrapper {
+  position: relative;
+  border-radius: 4px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 300px;
+  height: 56px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.button2 {
+  border-radius: 4px;
+  background-color: #db4444;
+  display: flex;
+  flex-direction: row;
+  padding: 16px 48px;
+  align-items: center;
+  justify-content: center;
+  color: #fafafa;
+}
 
-  .cartTotal {
-    position: absolute;
-    top: 32px;
-    left: 24px;
-    font-size: 20px;
-    line-height: 28px;
-    font-weight: 500;
-  }
-  .subtotalParent {
-    position: absolute;
-    top: 84px;
-    left: 24px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 307px;
-  }
-  .shippingParent {
-    position: absolute;
-    top: 140px;
-    left: 24px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 314px;
-  }
-  .totalParent {
-    position: absolute;
-    top: 196px;
-    left: 24px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 335px;
-  }
-  .button3 {
-    position: absolute;
-    top: 236px;
-    left: 89px;
-    border-radius: 4px;
-    background-color: #db4444;
-    display: flex;
-    flex-direction: row;
-    padding: 16px 48px;
-    align-items: center;
-    justify-content: center;
-    color: #fafafa;
-  }
-  .underlineIcon {
-    position: absolute;
-    top: 123px;
-    left: 24px;
-    width: 422px;
-    height: 1px;
-    opacity: 0.4;
-  }
-  .underlineIcon1 {
-    position: absolute;
-    top: 179px;
-    left: 24px;
-    width: 422px;
-    height: 1px;
-    opacity: 0.4;
-  }
-  .account1 {
-    position: relative;
-    line-height: 21px;
-    opacity: 0.5;
-  }
-  .roadmapChild {
-    position: relative;
-    width: 6.89px;
-    height: 12.2px;
-    opacity: 0.5;
-  }
-  .roadmap {
-    position: absolute;
-    top: 222px;
-    left: 135px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 12px;
-  }
+.cartTotal {
+  position: absolute;
+  top: 32px;
+  left: 24px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+}
+.subtotalParent {
+  position: absolute;
+  top: 84px;
+  left: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 307px;
+}
+.shippingParent {
+  position: absolute;
+  top: 140px;
+  left: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 314px;
+}
+.totalParent {
+  position: absolute;
+  top: 196px;
+  left: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 335px;
+}
+.button3 {
+  position: absolute;
+  top: 236px;
+  left: 89px;
+  border-radius: 4px;
+  background-color: #db4444;
+  display: flex;
+  flex-direction: row;
+  padding: 16px 48px;
+  align-items: center;
+  justify-content: center;
+  color: #fafafa;
+}
+.underlineIcon {
+  position: absolute;
+  top: 123px;
+  left: 24px;
+  width: 422px;
+  height: 1px;
+  opacity: 0.4;
+}
+.underlineIcon1 {
+  position: absolute;
+  top: 179px;
+  left: 24px;
+  width: 422px;
+  height: 1px;
+  opacity: 0.4;
+}
+.account1 {
+  position: relative;
+  line-height: 21px;
+  opacity: 0.5;
+}
+.roadmapChild {
+  position: relative;
+  width: 6.89px;
+  height: 12.2px;
+  opacity: 0.5;
+}
+.roadmap {
+  position: absolute;
+  top: 222px;
+  left: 135px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}

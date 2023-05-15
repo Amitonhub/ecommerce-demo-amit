@@ -35,7 +35,7 @@ const Layout = ({ children }: LayoutProps) => {
       .catch((error) => {
         console.log("Error setting data to wishlist:", error);
       });
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <Header />

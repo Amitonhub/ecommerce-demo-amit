@@ -9,6 +9,7 @@ import { deleteFromWishlist } from "@/redux/actions/WishlistAction";
 import { addToCart } from "@/redux/actions/CartAction";
 import { RootState } from "@/redux/store";
 import { useRef } from "react";
+import Swal from "sweetalert2";
 
 const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
   const dispatch = useDispatch();
@@ -17,7 +18,6 @@ const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
     (price / ((100 - discountPercentage) / 100)).toFixed()
   );
   const userId = useSelector((state: RootState) => state.logIn.user?.id);
-  const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
   const cart = useSelector((state: RootState) => state.cart.cart);
   const nextId = useRef(1);
 
@@ -32,10 +32,15 @@ const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
         userId,
         product,
         id: nextId.current++,
+        quantity: 1
       };
       const isProductInWishlist = cart.some((item: Cart) => item.userId === userId && item.product.id === product.id);
       if (!isProductInWishlist) {
-        alert("product added to Cart!!")
+        Swal.fire({
+          title: "Added!",
+          text: "this product is added to cart!",
+          icon: "success",
+        });
         addToCartToApi(CartItem)
         .then((data) => {
           dispatch(addToCart(data));
@@ -45,7 +50,12 @@ const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
         });
         return;
       }else{
-        alert("Product is already in the Cart!!")
+        Swal.fire({
+          title: 'Oops!',
+          text: 'This product is already in cart!',
+          icon: 'error'
+        });
+        
       }
     }
   };

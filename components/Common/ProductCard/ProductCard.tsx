@@ -11,6 +11,7 @@ import { RootState } from "@/redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import cart from "@/pages/cart";
 import { addToCart } from "@/redux/actions/CartAction";
+import Swal from "sweetalert2";
 
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
   const dispatch = useDispatch();
@@ -32,7 +33,11 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
       };
       const isProductInWishlist = wishlist.some((item: WishlistItem) => item.userId === userId && item.product.id === product.id);
       if (!isProductInWishlist) {
-        alert("product added to Wishlist!!")
+        Swal.fire({
+          title: "Added!",
+          text: "this product is added to wishlist!",
+          icon: "success",
+        });
         addToWishlistToApi(wishlistItem)
         .then((data) => {
           dispatch(addToWishlist(data));
@@ -42,7 +47,11 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         });
         return;
       }else{
-        alert("Product is already in the Wishlist!!")
+        Swal.fire({
+          title: 'Oops!',
+          text: 'This product is already in wishlist!',
+          icon: 'error'
+        });
       }
       
     }
@@ -54,10 +63,15 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         userId,
         product,
         id: nextId.current++,
+        quantity: 1
       };
       const isProductInWishlist = cart.some((item: Cart) => item.userId === userId && item.product.id === product.id);
       if (!isProductInWishlist) {
-        alert("product added to Cart!!")
+        Swal.fire({
+          title: "Added!",
+          text: "this product is added to cart!",
+          icon: "success",
+        });
         addToCartToApi(CartItem)
         .then((data) => {
           dispatch(addToCart(data));
@@ -67,7 +81,11 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         });
         return;
       }else{
-        alert("Product is already in the Cart!!")
+        Swal.fire({
+          title: 'Oops!',
+          text: 'This product is already in wishlist!',
+          icon: 'error'
+        });
       }
       
     }
@@ -88,7 +106,9 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
                 src={heart.src}
                 onClick={handleWishlist}
               />
+              <Link href={`/details/${product.id}`}>
               <img className={styles.fillHeartIcon} alt="" src={eye.src} />
+              </Link>
             </div>
             <Link href={`/details/${product.id}`}>
             <div className={styles.akWrapper}>
