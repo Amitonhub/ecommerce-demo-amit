@@ -1,36 +1,62 @@
-import { Cart, LogIn, Person, WishlistItem } from "@/components/types/Types";
+import { Cart, LogIn, Person, Product, WishlistItem } from "@/components/types/Types";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import axios from "axios";
 
-export const fetchLogInData = async (data: LogIn) => {
-  const res = await fetch("https://dummyjson.com/auth/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      username: data.username,
-      password: data.password,
-      expiresInMins: 60,
+const BASE_DUMMY_URL = 'https://dummyjson.com'
+const BASE_MOCK_URL = 'https://645b80a099b618d5f31d12f9.mockapi.io'
+
+export const dummyApi = createApi({
+  baseQuery: fetchBaseQuery({ baseUrl: BASE_DUMMY_URL }),
+  endpoints: (builder) => ({
+    fetchLogInData: builder.mutation<LogIn, Partial<LogIn>>({
+      query: (data) => ({
+        url: '/auth/login',
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: {
+          username: data.username,
+          password: data.password,
+          expiresInMins: 60,
+        },
+      }),
     }),
-  });
-  const dataFromApi = await res.json();
-  return dataFromApi;
-};
+    getUserData: builder.query<Person | undefined, number | undefined>({
+      query: (userId) => `/users/${userId}`,
+    }),
+    getProductsByCategory: builder.query<Product[], string>({
+      query: (category) => `/products/category/${category}`,
+    }),
+    fetchProducts: builder.query<any, void>({
+      query: () => '/products',
+    }),
+    fetchProductDetails: builder.query<any, number>({
+      query: (id) => `/products/${id}`,
+    }),
+  }),
+});
+
+export const {
+  useFetchLogInDataMutation,
+  useGetUserDataQuery,
+  useGetProductsByCategoryQuery,
+  useFetchProductsQuery,
+  useFetchProductDetailsQuery,
+} = dummyApi;
 
 export const fetchProducts = async () => {
-  const res = await fetch("https://dummyjson.com/products");
+  const res = await fetch(`${BASE_DUMMY_URL}/products`);
   const dataFromApi = await res.json();
   return dataFromApi.products;
 };
 
 export const fetchProductDetails = async (id: number): Promise<any> => {
-  const response = await fetch(`https://dummyjson.com/products/${id}`);
+  const response = await fetch(`${BASE_DUMMY_URL}/products/${id}`);
   const data = await response.json();
   return data;
 };
 
 export const addToWishlistToApi = async (wishlistItem: WishlistItem) => {
-  const response = await axios.get(
-    "https://645b80a099b618d5f31d12f9.mockapi.io/wishlist"
-  );
+  const response = await axios.get( `${BASE_MOCK_URL}/wishlist`);
   const wishlistData: WishlistItem[] = response.data;
   const exists = wishlistData.some(
     (item) =>
@@ -40,7 +66,7 @@ export const addToWishlistToApi = async (wishlistItem: WishlistItem) => {
   );
   if (!exists) {
     const postResponse = await axios.post(
-      "https://645b80a099b618d5f31d12f9.mockapi.io/wishlist",
+      `${BASE_MOCK_URL}/wishlist`,
       wishlistItem
     );
     return postResponse.data;
@@ -50,9 +76,7 @@ export const addToWishlistToApi = async (wishlistItem: WishlistItem) => {
 };
 
 export async function fetchWishlist(): Promise<WishlistItem[]> {
-  const response = await axios.get(
-    "https://645b80a099b618d5f31d12f9.mockapi.io/wishlist"
-  );
+  const response = await axios.get(`${BASE_MOCK_URL}/wishlist`);
   const data = response.data;
   return data.map((item: WishlistItem) => ({
     id: item.id,
@@ -63,11 +87,7 @@ export async function fetchWishlist(): Promise<WishlistItem[]> {
 
 export const deleteFromWishlistToApi = async (wishlistItemId: number) => {
   try {
-    console.log('delete')
-    const response = await axios.delete(
-      `https://645b80a099b618d5f31d12f9.mockapi.io/wishlist/${wishlistItemId}`
-    );
-    console.log('deleted successfully')
+    const response = await axios.delete(`${BASE_MOCK_URL}/wishlist/${wishlistItemId}`);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -76,9 +96,7 @@ export const deleteFromWishlistToApi = async (wishlistItemId: number) => {
 };
 
 export const addToCartToApi = async (cartItem: Cart) => {
-  const response = await axios.get(
-    "https://645b80a099b618d5f31d12f9.mockapi.io/cart"
-  );
+  const response = await axios.get(`${BASE_MOCK_URL}/cart`);
   const cartData: Cart[] = response.data;
   const exists = cartData.some(
     (item) =>
@@ -87,10 +105,7 @@ export const addToCartToApi = async (cartItem: Cart) => {
       item.product.id === cartItem.product.id
   );
   if (!exists) {
-    const postResponse = await axios.post(
-      "https://645b80a099b618d5f31d12f9.mockapi.io/cart",
-      cartItem
-    );
+    const postResponse = await axios.post(`${BASE_MOCK_URL}/cart`, cartItem);
     return postResponse.data;
   } else {
     return null;
@@ -98,9 +113,7 @@ export const addToCartToApi = async (cartItem: Cart) => {
 };
 
 export async function fetchCart(): Promise<Cart[]> {
-  const response = await axios.get(
-    "https://645b80a099b618d5f31d12f9.mockapi.io/cart" 
-  );
+  const response = await axios.get(`${BASE_MOCK_URL}/cart`);
   const data = response.data;
   return data.map((item: Cart) => ({
     quantity: item.quantity,
@@ -111,11 +124,7 @@ export async function fetchCart(): Promise<Cart[]> {
 }
 export const deleteFromCartToApi = async (carttemId: number) => {
   try {
-    console.log('delete')  
-    const response = await axios.delete(
-      `https://645b80a099b618d5f31d12f9.mockapi.io/cart/${carttemId}`
-    );
-    console.log('deleted successfully')
+    const response = await axios.delete(`${BASE_MOCK_URL}/cart/${carttemId}`);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -125,22 +134,26 @@ export const deleteFromCartToApi = async (carttemId: number) => {
 
 export const updateCartItemQuantity = async (cartItemId: number, newQuantity: number) => {
   try {
-    const response = await axios.put(
-      `https://645b80a099b618d5f31d12f9.mockapi.io/cart/${cartItemId}`,
-      { quantity: newQuantity }
-    );
-    console.log('updated successfully')
+    const response = await axios.put(`${BASE_MOCK_URL}/cart/${cartItemId}`, { quantity: newQuantity });
     return response.data;
   } catch (error) {
     console.error(error);
     return null;
   }
 };
+
 export async function getUserData(userId?: number): Promise<Person | undefined> {
   if (!userId) {
     return undefined;
   }
-
-  const response = await axios.get(`https://dummyjson.com/users/${userId}`);
+  const response = await axios.get(`${BASE_DUMMY_URL}/users/${userId}`);
   return response.data;
 }
+
+const getProductsByCategory = async (category: string) => {
+  const url = `${BASE_DUMMY_URL}/products/category/${category}`;
+  const response = await axios.get(url);
+  return response.data.products;
+};
+
+export default getProductsByCategory;

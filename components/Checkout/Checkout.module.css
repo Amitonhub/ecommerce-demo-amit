@@ -87,13 +87,10 @@
   left: 62px;
   font-family: system-ui;
 }
-.iconCheckbox {
+.saveThisText{
   position: relative;
-  border-radius: 4px;
-  width: 24px;
-  height: 24px;
-  overflow: hidden;
-  flex-shrink: 0;
+  left: 80px;
+  bottom: 25px;
 }
 .saveThisInformation {
   position: relative;
@@ -356,4 +353,8 @@
 }
 .link:hover {
   color: gray;
+}
+.checkboxInput{
+  left: 61px;
+  position: relative;
 }

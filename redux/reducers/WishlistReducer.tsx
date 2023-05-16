@@ -13,6 +13,7 @@ function wishlistReducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case "SET_WISHLIST_ITEMS":
       return {
+        ...state,
         wishlist: action.payload,
       };
     case "ADD_TO_WISHLIST":
@@ -30,9 +31,8 @@ function wishlistReducer(state = initialState, action: AnyAction) {
         wishlist: updatedWishlist,
       };
     default:
-      return state as WishListState;
+      return state;
   }
 }
-
 
 export default wishlistReducer;

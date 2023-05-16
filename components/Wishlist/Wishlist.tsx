@@ -6,8 +6,8 @@ import { WishlistItem } from "../types/Types";
 
 export default function Wishlist() {
   const dispatch = useDispatch();
-  const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
-  const userId = useSelector((state: RootState) => state.logIn.user?.id);
+  const wishlist = useSelector((state: RootState) => state.rootReducer.wishlist.wishlist);
+  const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
   const filteredWishlist = wishlist.filter(
     (item: WishlistItem) => item.userId === userId
   );

@@ -4,10 +4,10 @@ import logincart from "../../assets/logincart.png";
 import { LogIn } from "../types/Types";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { fetchLogInData } from "@/pages/api/Api";
 import { logIn } from "@/redux/actions/LogInAction";
 import { setUserDataInLocalStorage } from "@/localstorage/localstorage";
 import { useRouter } from "next/router";
+import { useFetchLogInDataMutation } from "@/pages/api/Api";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -17,13 +17,16 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   }: UseFormReturn<LogIn> = useForm();
+  const [fetchLogInData, { isLoading, isError, data, error }] = useFetchLogInDataMutation();
 
   const onSubmit = (data: LogIn) => {
-    fetchLogInData(data).then((response) => {
-      dispatch(logIn(response));
-      setUserDataInLocalStorage(response);
-      router.push("/");
-    });
+    fetchLogInData(data)
+      .unwrap()
+      .then((response: LogIn) => {
+        dispatch(logIn(response));
+        setUserDataInLocalStorage(response);
+        router.push("/");
+      });
     console.log(data);
   };
 

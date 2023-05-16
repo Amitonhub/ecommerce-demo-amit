@@ -2,22 +2,26 @@ import React, { useEffect, useState } from "react";
 import styles from "../Checkout.module.css";
 import { RootState } from "@/redux/store";
 import { useSelector } from "react-redux";
-import { getUserData } from "@/pages/api/Api";
+import { useGetUserDataQuery } from "@/pages/api/Api";
 import { Person } from "@/components/types/Types";
 
 export default function CheckoutForm() {
-  const userId = useSelector((state: RootState) => state.logIn.user?.id);
-  const [user, setUser] = useState<Person>();
+  const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
+  const [user, setUser] = useState<Person | undefined>();
+
+  const { data: userData, refetch: refetchUserData } = useGetUserDataQuery(userId);
 
   useEffect(() => {
-    async function fetchData() {
-      const user = await getUserData(userId);
-      setUser(user);
+    if (userData) {
+      setUser(userData);
     }
+  }, [userData]);
+
+  useEffect(() => {
     if (userId) {
-      fetchData();
+      refetchUserData();
     }
-  }, [userId]);
+  }, [userId, refetchUserData]);
 
   return (
     <>
@@ -96,10 +100,12 @@ export default function CheckoutForm() {
           </div>
         </div>
         <div className={styles.iconCheckboxParent}>
-          <img className={styles.iconCheckbox} alt="" src="/iconcheckbox.svg" />
-          <div className={styles.saveThisInformation}>
-            Save this information for faster check-out next time
-          </div>
+          <label className={styles.checkboxLabel}>
+            <input type="checkbox" className={styles.checkboxInput} />
+            <div className={styles.saveThisText}>
+              Save this information for faster check-out next time
+            </div>
+          </label>
         </div>
       </div>
     </>

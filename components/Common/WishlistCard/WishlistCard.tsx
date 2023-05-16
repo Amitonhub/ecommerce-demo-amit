@@ -17,8 +17,8 @@ const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
   const originalPrice = parseInt(
     (price / ((100 - discountPercentage) / 100)).toFixed()
   );
-  const userId = useSelector((state: RootState) => state.logIn.user?.id);
-  const cart = useSelector((state: RootState) => state.cart.cart);
+  const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
+  const cart = useSelector((state: RootState) => state.rootReducer.cart.cart);
   const nextId = useRef(1);
 
   const handleDeleteFromWishlist = async () => {

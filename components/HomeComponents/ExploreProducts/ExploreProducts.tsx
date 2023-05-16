@@ -9,9 +9,7 @@ import { useState } from "react";
 
 export default function ExploreProducts() {
   const [index, setIndex] = useState(0);
-  const { products, loading, error } = useSelector(
-    (state: RootState) => state.products
-  );
+  const { products, loading, error } = useSelector((state: RootState) => state.rootReducer.products);
 
   if (loading) {
     return <div>Loading...</div>;

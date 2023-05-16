@@ -298,6 +298,7 @@
   height: 44px;
   overflow: hidden;
   flex-shrink: 0;
+  cursor: pointer;
 }
 .div1 {
   position: absolute;
@@ -323,6 +324,7 @@
 .frameInner {
   border-radius: 0 4px 4px 0;
   width: 41px;
+  cursor: pointer;
 }
 .frameDiv {
   position: absolute;

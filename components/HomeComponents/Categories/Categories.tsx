@@ -4,26 +4,45 @@ import womenMenArrow from '../../../assets/HomeAssets/women&menArrow.png'
 import arrowRight from '../../../assets/HomeAssets/rightArrow.png'
 import appleLogo from '../../../assets/HomeAssets/appleLogo.png'
 import appleImage from '../../../assets/HomeAssets/appleImage.png'
+import Link from "next/link";
  
 export default function Categories() {
   return <>
   <div>
   <div className={styles.frameParent}>
           <div className={styles.womansFashionParent}>
+          <Link href="/categories/womens-dresses" className={styles.link}>
             <div className={styles.womansFashion}>Woman’s Fashion</div>
+          </Link>
             <img className={styles.dropdownIconWomen} alt="" src={womenMenArrow.src} />
           </div>
           <div className={styles.mensFashionParent}>
+          <Link href="/categories/mens-shirts" className={styles.link}>
             <div className={styles.womansFashion}>Men’s Fashion</div>
+          </Link>
             <img className={styles.dropdownIconMen} alt="" src={womenMenArrow.src} />
           </div>
+          <Link href="/categories/automotive" className={styles.link}>
           <div className={styles.womansFashion}>Electronics</div>
+          </Link>
+          <Link href="/categories/home-decoration" className={styles.link}>
           <div className={styles.womansFashion}>{`Home & Lifestyle`}</div>
-          <div className={styles.womansFashion}>Medicine</div>
-          <div className={styles.womansFashion}>{`Sports & Outdoor`}</div>
-          <div className={styles.womansFashion}>{`Baby’s & Toys`}</div>
-          <div className={styles.womansFashion}>{`Groceries & Pets`}</div>
-          <div className={styles.womansFashion}>{`Health & Beauty`}</div>
+          </Link>
+          <Link href="/categories/fragrances" className={styles.link}>
+          <div className={styles.womansFashion}>{`Fragrances`}</div>
+          </Link>
+          <Link href="/categories/motorcycle" className={styles.link}>
+          <div className={styles.womansFashion}>{`Motorcycle`}</div>
+          </Link>
+          <Link href="/categories/sunglasses" className={styles.link}>
+          <div className={styles.womansFashion}>{`Sunglasses`}</div>
+          </Link>
+          <Link href="/categories/groceries" className={styles.link}>
+          <div className={styles.womansFashion}>{`Groceries`}</div>
+          </Link>
+          <Link href="/categories/skincare" className={styles.link}>
+          <div className={styles.womansFashion}>{`Skincare`}</div>
+          </Link>
         </div>
         <div className={styles.heroEndframe}>
           <img

@@ -7,8 +7,8 @@ import paymentIcons from "../../../assets/Checkout/paymentIcons.png";
 import underline from "../../../assets/Checkout/underline.png";
 
 export default function CheckoutBill() {
-  const cart = useSelector((state: RootState) => state.cart.cart);
-  const userId = useSelector((state: RootState) => state.logIn.user?.id);
+  const cart = useSelector((state: RootState) => state.rootReducer.cart.cart);
+  const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
   const filteredCart = cart.filter((item: Cart) => item.userId === userId);
   let totalPrice = 0;
   filteredCart.forEach((item: Cart) => {

@@ -12,16 +12,17 @@ import { addToCartToApi, addToWishlistToApi } from "@/pages/api/Api";
 import { addToCart } from "@/redux/actions/CartAction";
 import Swal from "sweetalert2";
 
-const ProductCard: React.FC<ProductProps> = ({ product }) => {
+const FlashProductCard: React.FC<ProductProps> = ({ product }) => {
   const dispatch = useDispatch();
   const { price, rating, thumbnail, title, discountPercentage } = product;
   const originalPrice = parseInt(
     (price / ((100 - discountPercentage) / 100)).toFixed()
   );
-  const userId = useSelector((state: RootState) => state.logIn.user?.id);
-  const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
-  const cart = useSelector((state: RootState) => state.cart.cart);
+  const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
+  const wishlist = useSelector((state: RootState) => state.rootReducer.wishlist.wishlist);
+  const cart = useSelector((state: RootState) => state.rootReducer.cart.cart);
   const nextId = useRef(1);
+  const starRef = useRef<HTMLImageElement>(null);
 
   const handleWishlist = (event: React.MouseEvent<HTMLImageElement>) => {
     if (userId) {
@@ -79,7 +80,11 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         });
         return;
       }else{
-        alert("Product is already in the Cart!!")
+        Swal.fire({
+          title: 'Oops!',
+          text: 'This product is already in cart!',
+          icon: 'error'
+        });
       }
       
     }
@@ -97,13 +102,15 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
           <div className={styles.addToCart} onClick={handleCart}>Add To Cart</div>
           <div className={styles.fillHeartParent}>
             <img
+                  ref={starRef}
               className={styles.fillHeartIcon}
               alt=""
               src={heart.src}
               onClick={handleWishlist}
+              title="add to wishlist"
             />
             <Link href={`/details/${product.id}`}>
-            <img className={styles.fillHeartIcon} alt="" src={eye.src} />
+            <img className={styles.fillHeartIcon} alt="" src={eye.src}  title="view product"/>
             </Link>
           </div>
           <Link href={`/details/${product.id}`}>
@@ -127,4 +134,4 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default FlashProductCard;

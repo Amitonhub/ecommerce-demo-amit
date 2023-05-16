@@ -21,14 +21,14 @@ import Swal from "sweetalert2";
 export default function DetailsPage() {
   const dispatch = useDispatch();
   const product = useSelector(
-    (state: RootState) => state.productDetails.product
+    (state: RootState) => state.rootReducer.productDetails.product
   );
   const rating = Math.round(product.rating);
-  const cart = useSelector((state: RootState) => state.cart.cart);
+  const cart = useSelector((state: RootState) => state.rootReducer.cart.cart);
   const [quantity, setQuantity] = useState(1);
 
-  const userId = useSelector((state: RootState) => state.logIn.user?.id);
-  const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
+  const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
+  const wishlist = useSelector((state: RootState) => state.rootReducer.wishlist.wishlist);
   const nextId = useRef(1);
 
   const handleWishlist = (event: React.MouseEvent<HTMLImageElement>) => {
@@ -88,7 +88,9 @@ export default function DetailsPage() {
               <div className={styles.account}>Home</div>
             </Link>
             <img className={styles.roadmapChild} alt="" src={slash.src} />
+            <Link href={`/categories/${product.category}`} className={styles.link}>
             <div className={styles.account}>{product.category}</div>
+            </Link>
             <Link href={"/cart"}>
               <div className={styles.nothing1}>View Cart</div>
             </Link>

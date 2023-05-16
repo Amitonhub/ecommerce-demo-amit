@@ -5,9 +5,7 @@ import { Product } from "@/components/types/Types";
 import ProductCard from "@/components/Common/ProductCard/ProductCard";
 
 export default function BestSelling() {
-  const { products, loading, error } = useSelector(
-    (state: RootState) => state.products
-  );
+  const { products, loading, error } = useSelector((state: RootState) => state.rootReducer.products);
 
   if (loading) {
     return <div>Loading...</div>;

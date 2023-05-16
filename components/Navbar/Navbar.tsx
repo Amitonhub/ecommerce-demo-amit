@@ -17,9 +17,9 @@ import reviews from '../../assets/Navbar/reviews.png'
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
-  const cart = useSelector((state: RootState) => state.cart.cart);
-  const userId = useSelector((state: RootState) => state.logIn.user?.id)
+  const wishlist = useSelector((state: RootState) => state.rootReducer.wishlist.wishlist);
+  const cart = useSelector((state: RootState) => state.rootReducer.cart.cart);
+  const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id)
   const filteredWishlist = wishlist.filter((item: WishlistItem) => item.userId === userId);
   const filteredCart = cart.filter((item: Cart) => item.userId === userId);
   return (
