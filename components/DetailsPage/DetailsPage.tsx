@@ -15,10 +15,13 @@ import Link from "next/link";
 import FiveStar from "@/components/Common/FiveStar/FiveStar";
 import { addToWishlistToApi, updateCartItemQuantity } from "@/pages/api/Api";
 import { addToWishlist } from "@/redux/actions/WishlistAction";
-import { WishlistItem } from "../types/Types";
+import { Cart, WishlistItem } from "../types/Types";
 import Swal from "sweetalert2";
+import { fetchCheckoutItemsSuccess } from "@/redux/actions/CheckoutAction";
+import { useRouter } from "next/router";
 
 export default function DetailsPage() {
+  const router = useRouter()
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
   const product = useSelector((state: RootState) => state.rootReducer.productDetails.product);
@@ -74,6 +77,22 @@ export default function DetailsPage() {
       await updateCartItemQuantity(product.id, newQuantity);
     }
   };
+
+  const totalPrice = product.price * quantity;
+
+  const handleBuyNow = () => {
+    const cartItem: Cart = {
+      id: product.id,
+      product: product,
+      quantity: quantity,
+    };
+
+    const cartItems: Cart[] = [cartItem];
+
+    dispatch(fetchCheckoutItemsSuccess(cartItems, totalPrice));
+    router.push('/checkout');
+  };
+
 
   return (
     <>
@@ -202,11 +221,9 @@ export default function DetailsPage() {
               onClick={handleIncrement}
             />
           </div>
-          <Link href={"/checkout"}>
-            <div className={styles.button}>
-              <div className={styles.addToCart}>Buy Now</div>
-            </div>
-          </Link>
+          <div className={styles.button}>
+            <div className={styles.addToCart} onClick={handleBuyNow}>Buy Now</div>
+          </div>
           <img
             className={styles.productDetailsPageItem}
             alt=""

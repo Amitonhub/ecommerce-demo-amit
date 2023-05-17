@@ -44,7 +44,7 @@ export const {
 } = dummyApi;
 
 export const fetchProducts = async () => {
-  const res = await fetch(`${BASE_DUMMY_URL}/products`);
+  const res = await fetch(`${BASE_DUMMY_URL}/products?limit=100`);
   const dataFromApi = await res.json();
   return dataFromApi.products;
 };
@@ -56,11 +56,11 @@ export const fetchProductDetails = async (id: number): Promise<any> => {
 };
 
 export const addToWishlistToApi = async (wishlistItem: WishlistItem) => {
-  const response = await axios.get( `${BASE_MOCK_URL}/wishlist`);
+  const response = await axios.get(`${BASE_MOCK_URL}/wishlist`);
   const wishlistData: WishlistItem[] = response.data;
   const exists = wishlistData.some(
     (item) =>
-    item.id === wishlistItem.id &&
+      item.id === wishlistItem.id &&
       item.userId === wishlistItem.userId &&
       item.product.id === wishlistItem.product.id
   );
@@ -100,7 +100,7 @@ export const addToCartToApi = async (cartItem: Cart) => {
   const cartData: Cart[] = response.data;
   const exists = cartData.some(
     (item) =>
-    item.id === cartItem.id &&
+      item.id === cartItem.id &&
       item.userId === cartItem.userId &&
       item.product.id === cartItem.product.id
   );

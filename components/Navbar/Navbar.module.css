@@ -95,14 +95,21 @@
   line-height: 18px;
   opacity: 0.5;
   font-family: system-ui;
+  border: none;
+  background-color: #f5f5f5;
+}
+.whatAreYou:focus {
+  outline: none;
+  color: #676666;
 }
 .dropdownIcon {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
   overflow: hidden;
   cursor: pointer;
+  bottom: 1px;
 }
 .wishlistIcon {
   overflow: hidden;
@@ -111,7 +118,7 @@
   position: relative;
   width: 32px;
   height: 32px;
-  top: 8px;
+  top: 18px;
   left: 5px;
 }
 .user {
@@ -125,13 +132,13 @@
   width: 100%;
   position: relative;
   background: #c6c2c2;
-  bottom: 12px;
+  bottom: 30px;
 }
 .vectorIcon {
   position: absolute;
-  height: 60.94%;
-  width: 67.19%;
-  top: 19.53%;
+  height: 25px;
+  width: 25px;
+  top: 7.53%;
   right: 16.41%;
   bottom: 19.53%;
   left: 16.41%;
@@ -153,8 +160,8 @@
 }
 .cartBadge {
   position: relative;
-  right: 9px;
-  top: 1px;
+  left: 21px;
+  bottom: 16px;
 }
 .wishCount {
   position: absolute;
@@ -168,8 +175,8 @@
 .cartCount {
   width: fit-content;
   position: relative;
-  bottom: 24px;
-  left: 28px;
+  bottom: 33px;
+  left: 26px;
   color: white;
   cursor: pointer;
 }

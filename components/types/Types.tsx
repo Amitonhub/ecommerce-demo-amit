@@ -90,3 +90,7 @@ export interface CartItemsProps {
   product: Product;
   item: Cart;
 }
+export interface CheckoutItem {
+  product: Product[];
+  totalPrice: number;
+}

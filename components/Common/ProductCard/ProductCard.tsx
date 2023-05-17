@@ -81,7 +81,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
       } else {
         Swal.fire({
           title: 'Oops!',
-          text: 'This product is already in wishlist!',
+          text: 'This product is already in cart!',
           icon: 'error'
         });
       }

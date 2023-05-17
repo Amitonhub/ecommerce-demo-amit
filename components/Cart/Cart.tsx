@@ -9,8 +9,11 @@ import CartItems from "./CartItems/CartItems";
 import { setCartItems } from "@/redux/actions/CartAction";
 import { fetchCart } from "@/pages/api/Api";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { fetchCheckoutItemsSuccess } from "@/redux/actions/CheckoutAction";
 
 export default function Cart() {
+  const router = useRouter()
   let totalPrice = 0;
   const dispatch = useDispatch()
   const cart = useSelector((state: RootState) => state.rootReducer.cart.cart);
@@ -25,6 +28,11 @@ export default function Cart() {
       .catch((error) => {
         console.log("Error setting data to Cart:", error);
       });
+  }
+
+  const handleCheckout = () => {
+    dispatch(fetchCheckoutItemsSuccess(filteredCart, totalPrice))
+    router.push('/checkout')
   }
 
   return <>
@@ -82,7 +90,7 @@ export default function Cart() {
             </div>
             <Link href={'/checkout'}>
               <div className={styles.button3}>
-                <div className={styles.viewAllProducts}>{`Procees to checkout`}</div>
+                <div className={styles.viewAllProducts} onClick={handleCheckout}>{`Procees to checkout`}</div>
               </div>
             </Link>
             <img className={styles.underlineIcon} alt="" src={totalUnderline.src} />

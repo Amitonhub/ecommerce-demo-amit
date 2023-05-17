@@ -6,15 +6,7 @@ import paymentIcons from "../../../assets/Checkout/paymentIcons.png";
 import underline from "../../../assets/Checkout/underline.png";
 
 export default function CheckoutBill() {
-  const cart = useSelector((state: RootState) => state.rootReducer.cart.cart);
-  const userId = useSelector(
-    (state: RootState) => state.rootReducer.logIn.user?.id
-  );
-  const filteredCart = cart.filter((item: Cart) => item.userId === userId);
-  let totalPrice = 0;
-  filteredCart.forEach((item: Cart) => {
-    totalPrice += item.product.price * item.quantity;
-  });
+  const { filteredCart, totalPrice } = useSelector((state: RootState) => state.rootReducer.checkout)
 
   return (
     <>
@@ -34,7 +26,7 @@ export default function CheckoutBill() {
                   <div className={styles.title}>{item.product.title}</div>
                   <div className={styles.price}>
                     {" "}
-                    ${item.product.price}* {item.quantity}{" "}
+                    ${item.product.price} * {item.quantity}
                   </div>
                 </div>
               </div>
@@ -47,7 +39,7 @@ export default function CheckoutBill() {
                 <div className={styles.subtotalParent}>
                   <div className={styles.saveThisInformation}>Subtotal:</div>
                   <div className={styles.saveThisInformation}>
-                    ${totalPrice}{" "}
+                    ${totalPrice}
                   </div>
                 </div>
                 <img className={styles.underlineIcon1} src={underline.src} />
