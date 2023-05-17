@@ -4,12 +4,12 @@ import star from "../../../assets/HomeAssets/FlashSales/star.png";
 import { FiveStarProps } from "@/components/types/Types";
 
 const FiveStar: React.FC<FiveStarProps> = ({ rating }) => {
+  const filledStars = Math.floor(rating);
+  const emptyStars = 5 - filledStars;
+
   if (rating < 0 || rating > 5 || isNaN(rating)) {
     return null;
   }
-
-  const filledStars = Math.floor(rating);
-  const emptyStars = 5 - filledStars;
 
   return (
     <>

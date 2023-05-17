@@ -14,9 +14,7 @@ import Swal from "sweetalert2";
 const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
   const dispatch = useDispatch();
   const { price, rating, thumbnail, title, discountPercentage } = product;
-  const originalPrice = parseInt(
-    (price / ((100 - discountPercentage) / 100)).toFixed()
-  );
+  const originalPrice = parseInt((price / ((100 - discountPercentage) / 100)).toFixed());
   const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
   const cart = useSelector((state: RootState) => state.rootReducer.cart.cart);
   const nextId = useRef(1);
@@ -26,7 +24,7 @@ const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
     dispatch(deleteFromWishlist(item.product.id));
   };
 
-  const handleCart = (event: React.MouseEvent<HTMLImageElement>) => {
+  const handleCart = () => {
     if (userId) {
       const CartItem: Cart = {
         userId,
@@ -42,31 +40,31 @@ const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
           icon: "success",
         });
         addToCartToApi(CartItem)
-        .then((data) => {
-          dispatch(addToCart(data));
-        })
-        .catch((error) => {
-          console.log("Error adding to cart:", error);
-        });
+          .then((data) => {
+            dispatch(addToCart(data));
+          })
+          .catch((error) => {
+            console.log("Error adding to cart:", error);
+          });
         return;
-      }else{
+      } else {
         Swal.fire({
           title: 'Oops!',
-          text: 'This product is already in cart!',
+          text: 'This product is already in wishlist!',
           icon: 'error'
         });
-        
       }
+
     }
   };
- 
+
   return (
     <div className={styles.cartWithFlatDiscountParent}>
       {product.title}
       <div className={styles.cartWithFlatDiscount}></div>
       <div className={styles.cartWithFlatDiscount}>
         <div className={styles.discountPercentParent}>
-          <div className={styles.frameChild} onClick={handleCart}/>
+          <div className={styles.frameChild} onClick={handleCart} />
           <div className={styles.addToCart} onClick={handleCart}>Add To Cart</div>
           <div className={styles.fillHeartParent}>
             <img

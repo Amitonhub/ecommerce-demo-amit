@@ -8,8 +8,8 @@ import { Person } from "@/components/types/Types";
 export default function CheckoutForm() {
   const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
   const [user, setUser] = useState<Person | undefined>();
-
-  const { data: userData, refetch: refetchUserData } = useGetUserDataQuery(userId);
+  const { data: userData, refetch: refetchUserData } =
+    useGetUserDataQuery(userId);
 
   useEffect(() => {
     if (userData) {
@@ -103,7 +103,8 @@ export default function CheckoutForm() {
           <label className={styles.checkboxLabel}>
             <input type="checkbox" className={styles.checkboxInput} />
             <div className={styles.saveThisText}>
-              Save this information for faster check-out next time
+              {" "}
+              Save this information for faster check-out next time{" "}
             </div>
           </label>
         </div>

@@ -22,6 +22,7 @@ export default function Navbar() {
   const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id)
   const filteredWishlist = wishlist.filter((item: WishlistItem) => item.userId === userId);
   const filteredCart = cart.filter((item: Cart) => item.userId === userId);
+  
   return (
     <>
       <div className={styles.header}>

@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 
 const CartItems: React.FC<CartItemsProps> = ({ product, item }) => {
   const dispatch = useDispatch();
-  const { price, rating, thumbnail, title, discountPercentage } = product;
+  const { price, thumbnail, title } = product;
   const [quantity, setQuantity] = useState(item.quantity);
 
   const handleDeleteFromCart = async () => {

@@ -27,8 +27,7 @@ export default function CategoryPage() {
 
   const handleClickLeft = () => setIndex((index - 1 + products.length) % products.length);
   const handleClickRight = () => setIndex((index + 1) % products.length);
-  const categoryProducts = [...products.slice(index), ...products.slice(0, index),
-  ];
+  const categoryProducts = [...products.slice(index), ...products.slice(0, index),];
 
   return (
     <>

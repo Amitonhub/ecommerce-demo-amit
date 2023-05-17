@@ -292,6 +292,7 @@
 .viewAllProductsWrapper {
   position: absolute;
   left: 1091px;
+  top: 57px;
   border-radius: 4px;
   background-color: #db4444;
   display: flex;

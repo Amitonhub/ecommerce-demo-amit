@@ -22,19 +22,6 @@
   height: 12.2px;
   flex-shrink: 0;
 }
-.nothing1,
-.roadmapItem {
-  position: relative;
-  display: none;
-}
-.roadmapItem {
-  width: 13.19px;
-  height: 0;
-  flex-shrink: 0;
-}
-.nothing1 {
-  line-height: 21px;
-}
 .roadmap {
   position: absolute;
   top: 222px;
@@ -95,6 +82,8 @@
   font-size: 16px;
   line-height: 24px;
   font-family: system-ui;
+  display: flex;
+  justify-content: center;
 }
 .button {
   position: absolute;
@@ -115,4 +104,11 @@
   line-height: 24px;
   font-weight: 500;
   font-family: system-ui;
+}
+.link {
+  text-decoration: none;
+  color: #000000;
+}
+.link:hover {
+  color: #000000;
 }

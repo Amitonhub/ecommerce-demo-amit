@@ -1,38 +1,30 @@
 import React from "react";
 import styles from "./Error.module.css";
-import { Container, Row, Col } from "react-bootstrap";
+import Link from "next/link";
 
 export default function error() {
   return (
     <>
-      <Container fluid className={`${styles.error}`}>
-        <Row>
-          <Col xs={12} md={6}>
-            <div className={styles.roadmap}>
-              <div className={styles.account}>Home</div>
-              <div className={styles.account}>/</div>
-              <div className={styles.english}>404 Error</div>
-              <img className={styles.roadmapItem} alt="" src="/line-14.svg" />
-              <div className={styles.nothing1}>Nothing</div>
-              <img className={styles.roadmapItem} alt="" src="/line-14.svg" />
-              <div className={styles.nothing1}>Nothing</div>
-              <img className={styles.roadmapItem} alt="" src="/line-14.svg" />
-              <div className={styles.nothing1}>Nothing</div>
-            </div>
-          </Col>
-          <Col xs={12} md={6}>
-            <div className={styles.notFoundParent}>
-              <div className={styles.notFound}>404 Not Found</div>
-              <div className={styles.yourVisitedPage}>
-                Your visited page not found. You may go home page.
-              </div>
-            </div>
-            <div className={styles.button}>
-              <div className={styles.viewAllProducts}>Back to home page</div>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <div className={`container ${styles.error}`}>
+        <div className={`${styles.roadmap} row`}>
+          <Link href={"/"} className={`${styles.link} col`}>
+            <div className={`${styles.account} col-auto`}>{`Home`}</div>
+          </Link>
+          <div className={`${styles.account} col-auto`}>/</div>
+          <div className={`${styles.english} col-auto`}>{`404 Error`}</div>
+        </div>
+        <div className={`${styles.notFoundParent} row`}>
+          <div className={`${styles.notFound} col`}>{`404 Not Found`}</div>
+          <div className={`${styles.yourVisitedPage} col`}>
+            {`Your visited page not found. You may go to the home page.`}
+          </div>
+        </div>
+        <div className={`${styles.button} row`}>
+          <div className={`${styles.viewAllProducts} col`}>
+            {`Back to home page`}
+          </div>
+        </div>
+      </div>
     </>
   );
 }

@@ -6,6 +6,7 @@ import { RootState } from "@/redux/store";
 import { Product } from "@/components/types/Types";
 import ProductCard from "@/components/Common/ProductCard/ProductCard";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function ExploreProducts() {
   const [index, setIndex] = useState(0);
@@ -63,9 +64,11 @@ export default function ExploreProducts() {
                 <ProductCard key={product.id} product={product} />
               ))}
         </div>
+        <Link href={'/explore'}>
         <div className={styles.viewAllProductsWrapper}>
           <div className={styles.shopNow}>View All Products</div>
         </div>
+        </Link>
       </div>
     </>
   );

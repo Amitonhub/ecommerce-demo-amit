@@ -4,12 +4,13 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import styles from './Layout.module.css'
 import { useDispatch } from "react-redux";
-import { fetchCart, fetchWishlist } from "@/pages/api/Api";
+import { fetchCart, fetchProducts, fetchWishlist } from "@/pages/api/Api";
 import { setWishlistItems } from "@/redux/actions/WishlistAction";
 import { useEffect } from "react";
 import { setCartItems } from "@/redux/actions/CartAction";
 import "@fontsource/inter"; 
 import "@fontsource/montserrat";
+import { fetchProductsSuccess } from "@/redux/actions/ProductAction";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -21,6 +22,10 @@ const Layout = ({ children }: LayoutProps) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const fetchProductsAsync = async () => {
+      const data = await fetchProducts();
+      dispatch(fetchProductsSuccess(data));
+    };
     fetchWishlist()
       .then((data) => {
         dispatch(setWishlistItems(data));
@@ -35,6 +40,7 @@ const Layout = ({ children }: LayoutProps) => {
       .catch((error) => {
         console.log("Error setting data to wishlist:", error);
       });
+      fetchProductsAsync();
   }, [dispatch]);
   return (
     <>

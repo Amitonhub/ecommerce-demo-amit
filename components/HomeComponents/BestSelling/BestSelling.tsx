@@ -3,9 +3,11 @@ import styles from "./BestSelling.module.css";
 import { RootState } from "@/redux/store";
 import { Product } from "@/components/types/Types";
 import ProductCard from "@/components/Common/ProductCard/ProductCard";
+import Link from "next/link";
 
 export default function BestSelling() {
   const { products, loading, error } = useSelector((state: RootState) => state.rootReducer.products);
+  const sortedProducts = [...products].sort((a, b) => b.rating - a.rating);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -15,7 +17,6 @@ export default function BestSelling() {
     return <div>Error: {error}</div>;
   }
 
-  const sortedProducts = [...products].sort((a, b) => b.rating - a.rating);
   return (
     <>
       <div className={styles.frameContainer}>
@@ -33,9 +34,11 @@ export default function BestSelling() {
               <div className={styles.flashSales}>Best Selling Products</div>
             </div>
           </div>
-          <div className={styles.viewAllProductsWrapper}>
-            <div className={styles.shopNow}>View All</div>
-          </div>
+          <Link href={'/best-selling'}>
+            <div className={styles.viewAllProductsWrapper}>
+              <div className={styles.shopNow}>View All</div>
+            </div>
+          </Link>
         </div>
         <div className={styles.productContainer}>
           {sortedProducts &&

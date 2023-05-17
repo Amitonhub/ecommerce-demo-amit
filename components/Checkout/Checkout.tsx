@@ -10,9 +10,9 @@ export default function Checkout() {
     <>
       <div className={styles.checkout}>
         <div className={styles.roadmap}>
-            <Link href={'/cart'} className={styles.link}>
-          <div className={styles.account}>Cart</div>
-            </Link>
+          <Link href={"/cart"} className={styles.link}>
+            <div className={styles.account}>Cart</div>
+          </Link>
           <img className={styles.roadmapChild} alt="" src={slash.src} />
           <div className={styles.account}>CheckOut</div>
         </div>

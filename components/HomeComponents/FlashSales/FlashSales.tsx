@@ -1,30 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import styles from "./FlashSales.module.css";
 import leftArrow from "../../../assets/HomeAssets/FlashSales/leftArrow.png";
 import rightArrow from "../../../assets/HomeAssets/FlashSales/rightArrow.png";
 import FlashProductCard from "@/components/Common/FlashProductCard/FlashProductCard";
 import { Product } from "@/components/types/Types";
-import { fetchProducts } from "@/pages/api/Api";
-import { fetchProductsSuccess } from "@/redux/actions/ProductAction";
 import { RootState } from "@/redux/store";
+import Link from "next/link";
 
 const COUNTDOWN_INTERVAL = 1000;
 
 export default function FlashSales() {
-  const dispatch = useDispatch();
   const [index, setIndex] = useState(0);
   const { products, loading, error } = useSelector((state: RootState) => state.rootReducer.products);
   const sortedProducts = products.slice().sort((a, b) => b.discountPercentage - a.discountPercentage);
-
-  useEffect(() => {
-    const fetchProductsAsync = async () => {
-      const data = await fetchProducts();
-      dispatch(fetchProductsSuccess(data));
-    };
-    fetchProductsAsync();
-  }, [dispatch]);
-
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -70,7 +59,7 @@ export default function FlashSales() {
 
   const handleClickLeft = () => setIndex((index - 1 + products.length) % products.length);
   const handleClickRight = () => setIndex((index + 1) % products.length);
-  const flahProducts = [...sortedProducts.slice(index), ...sortedProducts.slice(0, index)];
+  const flahProducts = [...sortedProducts.slice(index), ...sortedProducts.slice(0, index),];
 
   return (
     <>
@@ -128,9 +117,11 @@ export default function FlashSales() {
               <FlashProductCard key={product.id} product={product} />
             ))}
         </div>
-        <div className={styles.viewAllProductsWrapper}>
-          <div className={styles.shopNow}>View All Products</div>
-        </div>
+        <Link href={"/flash-sales"}>
+          <div className={styles.viewAllProductsWrapper}>
+            <div className={styles.shopNow}>View All Products</div>
+          </div>
+        </Link>
       </div>
     </>
   );
