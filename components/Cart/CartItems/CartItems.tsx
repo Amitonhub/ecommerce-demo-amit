@@ -15,12 +15,12 @@ const CartItems: React.FC<CartItemsProps> = ({ product, item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
 
   const handleDeleteFromCart = async () => {
+    await deleteFromCartToApi(item.id)
     Swal.fire({
       title: "Deleted!",
       text: "this product is successfully deleted from cart!",
       icon: "success",
     });
-    await deleteFromCartToApi(item.id)
     dispatch(deleteFromCart(item.product.id));
   };
 
@@ -29,7 +29,7 @@ const CartItems: React.FC<CartItemsProps> = ({ product, item }) => {
     setQuantity(newQuantity);
     await updateCartItemQuantity(item.id, newQuantity);
   };
-  
+
   const handleDecrement = async () => {
     if (quantity > 1) {
       const newQuantity = quantity - 1;
@@ -46,7 +46,7 @@ const CartItems: React.FC<CartItemsProps> = ({ product, item }) => {
         <div className={styles.parent}>
           <div className={styles.product}>
             <input
-            className={styles.quantity}
+              className={styles.quantity}
               type="number"
               name="quantity"
               id="quantity"

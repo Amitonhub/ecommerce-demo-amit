@@ -21,6 +21,11 @@ const WishlistCard: React.FC<WishlistCardProps> = ({ product, item }) => {
 
   const handleDeleteFromWishlist = async () => {
     await deleteFromWishlistToApi(item.id)
+    Swal.fire({
+      title: "Deleted!",
+      text: "this product is successfully deleted from wishlist!",
+      icon: "success",
+    });
     dispatch(deleteFromWishlist(item.product.id));
   };
 

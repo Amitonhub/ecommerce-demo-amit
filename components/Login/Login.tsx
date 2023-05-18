@@ -8,6 +8,7 @@ import { logIn } from "@/redux/actions/LogInAction";
 import { setUserDataInLocalStorage } from "@/localstorage/localstorage";
 import { useRouter } from "next/router";
 import { useFetchLogInDataMutation } from "@/pages/api/Api";
+import Swal from "sweetalert2";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -23,6 +24,11 @@ export default function Login() {
     fetchLogInData(data)
       .unwrap()
       .then((response: LogIn) => {
+        Swal.fire({
+          title: "Logged In!",
+          text: "You have been Successfully logged In!",
+          icon: "success",
+        });
         dispatch(logIn(response));
         setUserDataInLocalStorage(response);
         router.push("/");

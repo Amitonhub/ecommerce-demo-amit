@@ -17,3 +17,8 @@ export const deleteFromCart = (productId: number) => ({
   payload: productId,
 });
 
+export const moveAllToCart = (data: Cart[]) => ({
+  type: 'MOVE_ALL_TO_CART',
+  payload: data,
+});
+

@@ -19,6 +19,7 @@ import { Cart, WishlistItem } from "../types/Types";
 import Swal from "sweetalert2";
 import { fetchCheckoutItemsSuccess } from "@/redux/actions/CheckoutAction";
 import { useRouter } from "next/router";
+import SkeletonComponent from "../Common/Skeleton/Skeleton";
 
 export default function DetailsPage() {
   const router = useRouter()

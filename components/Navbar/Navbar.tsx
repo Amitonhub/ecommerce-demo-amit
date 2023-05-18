@@ -15,8 +15,10 @@ import logOut from '../../assets/Navbar/logOut.png'
 import myOrders from '../../assets/Navbar/myOrders.png'
 import reviews from '../../assets/Navbar/reviews.png'
 import { setSearchText } from "@/redux/actions/SearchAction";
-import Search from "../SeparatePages/SearchPage/Search";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
+import { logOutAction } from "@/redux/actions/LogInAction";
+import { logOutUserDataInLocalStorage } from "@/localstorage/localstorage";
+import Swal from "sweetalert2";
 
 export default function Navbar() {
   const dispatch = useDispatch()
@@ -31,7 +33,7 @@ export default function Navbar() {
 
   useEffect(() => {
     if (searchText === "") {
-      router.back();
+      router.push('/');
     }
   }, [searchText]);
 
@@ -42,10 +44,22 @@ export default function Navbar() {
     router.push('/search');
   };
 
+  const handlelogOut = () => {
+    Swal.fire({
+      title: "Logged Out!",
+      text: "You have been Successfully logged Out!",
+      icon: "success",
+    });
+    logOutUserDataInLocalStorage()
+    dispatch(logOutAction())
+    setIsDropdownOpen(false)
+  }
+
   return (
     <>
       <div className={styles.header}>
         <div className={styles.logoParent}>
+
           <Link className={styles.link} href={`/`}>
             <div className={styles.logo}>
               <b className={styles.exclusive}>{`Exclusive`}</b>
@@ -135,7 +149,7 @@ export default function Navbar() {
                     <img className={styles.iconReviews} alt="" src={reviews.src} />
                     <div className={styles.dropDownOptions}>My Reviews</div>
                   </div>
-                  <div className={styles.userParent}>
+                  <div className={styles.userParent} onClick={handlelogOut}>
                     <img className={styles.iconMallbag} alt="" src={logOut.src} />
                     <div className={styles.dropDownOptions}>Logout</div>
                   </div>

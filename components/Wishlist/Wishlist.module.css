@@ -34,6 +34,7 @@
   font-size: 16px;
   position: relative;
   left: 45px;
+  cursor: pointer;
 }
 .wishlist4Parent {
   display: flex;
@@ -42,14 +43,14 @@
   justify-content: flex-start;
   gap: 835px;
 }
-.productContainer{
+.productContainer {
   width: 1193px;
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
   position: relative;
 }
-.productContainer::-webkit-scrollbar{
-height: 0;
-width: 0;
+.productContainer::-webkit-scrollbar {
+  height: 0;
+  width: 0;
 }

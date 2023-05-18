@@ -112,6 +112,31 @@ export const addToCartToApi = async (cartItem: Cart) => {
   }
 };
 
+export const moveAllToCartApi = async (cartItems: Cart[]) => {
+  const response = await axios.get(`${BASE_MOCK_URL}/cart`);
+  const cartData: Cart[] = response.data;
+  const addedItems = [];
+
+  for (const cartItem of cartItems) {
+    const exists = cartData.some(
+      (item) =>
+        item.id === cartItem.id &&
+        item.userId === cartItem.userId &&
+        item.product.id === cartItem.product.id &&
+        item.quantity === 1
+    );
+    if (!exists) {
+      const updatedCartItem = { ...cartItem, quantity: 1 };
+      const postResponse = await axios.post(`${BASE_MOCK_URL}/cart`, updatedCartItem);
+      addedItems.push(postResponse.data);
+    }
+  }
+
+  return addedItems;
+};
+
+
+
 export async function fetchCart(): Promise<Cart[]> {
   const response = await axios.get(`${BASE_MOCK_URL}/cart`);
   const data = response.data;
@@ -122,6 +147,7 @@ export async function fetchCart(): Promise<Cart[]> {
     product: item.product,
   }));
 }
+
 export const deleteFromCartToApi = async (carttemId: number) => {
   try {
     const response = await axios.delete(`${BASE_MOCK_URL}/cart/${carttemId}`);

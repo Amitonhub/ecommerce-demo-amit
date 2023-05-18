@@ -6,21 +6,21 @@ export interface CartState {
 }
 
 const initialState: CartState = {
-    cart: [] as Cart[],
+  cart: [] as Cart[],
 };
 
 function cartReducer(state = initialState, action: AnyAction) {
   switch (action.type) {
-    case "SET_CART_ITEMS":
+    case 'SET_CART_ITEMS':
       return {
         cart: action.payload,
       };
-    case "ADD_TO_CART":
+    case 'ADD_TO_CART':
       return {
         ...state,
         cart: [...state.cart, action.payload],
       };
-    case "DELETE_FROM_CART":
+    case 'DELETE_FROM_CART':
       const productId = action.payload;
       const updatedCart = state.cart.filter(
         (item) => item.product.id !== productId
@@ -29,19 +29,25 @@ function cartReducer(state = initialState, action: AnyAction) {
         ...state,
         cart: updatedCart,
       };
-      case "CHANGE_CART_ITEM_QUANTITY":
-        const { id, quantity } = action.payload;
-        const updatedCartWithNewQuantity = state.cart.map((item) =>
-          item.product.id === id ? { ...item, quantity: quantity } : item
-        );
-        return {
-          ...state,
-          cart: updatedCartWithNewQuantity,
-        };
+    case 'MOVE_ALL_TO_CART':
+      return {
+        ...state,
+        cart: [...state.cart, ...action.payload],
+      };
+    case 'CHANGE_CART_ITEM_QUANTITY':
+      const { id, quantity } = action.payload;
+      const updatedCartWithNewQuantity = state.cart.map((item) =>
+        item.product.id === id ? { ...item, quantity: quantity } : item
+      );
+      return {
+        ...state,
+        cart: updatedCartWithNewQuantity,
+      };
     default:
       return state as CartState;
   }
 }
+
 
 
 export default cartReducer;

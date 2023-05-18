@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import WishlistCard from "../Common/WishlistCard/WishlistCard";
 import { RootState } from "@/redux/store";
 import { Cart, WishlistItem } from "../types/Types";
-import { addToCartToApi } from "@/pages/api/Api";
-import cart from "@/pages/cart";
-import { addToCart, setCartItems } from "@/redux/actions/CartAction";
+import { moveAllToCartApi } from "@/pages/api/Api";
+import { moveAllToCart } from "@/redux/actions/CartAction";
 import Swal from "sweetalert2";
 import { useRef } from "react";
 
@@ -17,33 +16,33 @@ export default function Wishlist() {
   const product = wishlist.filter((item: WishlistItem) => item.userId === userId);
   const nextId = useRef(1);
 
-  // const handleCart = async () => {
-  //   const filteredCart = cart.filter((item: Cart) => item.userId === userId);
-  //   const productsToAdd = product.filter(
-  //     (item: Cart) => !filteredCart.some((cartItem: Cart) => cartItem.product.id === item.product.id)
-  //   );
+  const handleCart = async () => {
+    const filteredCart = cart.filter((item: Cart) => item.userId === userId);
+    const productsToAdd = product.filter(
+      (item: Cart) => !filteredCart.some((cartItem: Cart) => cartItem.product.id === item.product.id)
+    );
 
+    moveAllToCartApi(productsToAdd)
+      .then((data) => {
+        console.log(data);
+        Swal.fire({
+          title: "Added!",
+          text: "These products are added to the cart!",
+          icon: "success",
+        });
+        dispatch(moveAllToCart(data));
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: 'Oops!',
+          text: 'These products are already in the cart!',
+          icon: 'error'
+        });
+        console.log("Error adding to cart:", error);
+      });
 
-  //   addToCartToApi(productsToAdd)
-  //     .then((data) => {
-  //       console.log(data)
-  //       Swal.fire({
-  //         title: "Added!",
-  //         text: "this product is added to cart!",
-  //         icon: "success",
-  //       });
-  //       dispatch(addToCart(data));
-  //     })
-  //     .catch((error) => {
-  //       Swal.fire({
-  //         title: 'Oops!',
-  //         text: 'This product is already in cart!',
-  //         icon: 'error'
-  //       });
-  //       console.log("Error adding to cart:", error);
-  //     });
-  //   return;
-  // };
+    return;
+  };
 
   return (
     <>
@@ -52,7 +51,7 @@ export default function Wishlist() {
           <div className={styles.wishlist4}>
             Wishlist ({product.length})
           </div>
-          <div className={styles.button}>
+          <div className={styles.button} onClick={handleCart}>
             <div className={styles.viewAllProducts}>{`Move All To Bag`}</div>
           </div>
         </div>

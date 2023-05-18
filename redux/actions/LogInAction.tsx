@@ -1,4 +1,5 @@
 import { LogIn } from "@/components/types/Types";
+import { LoginState } from "../reducers/LogInReducer";
 
 
 export const logIn = (user: LogIn) => ({
