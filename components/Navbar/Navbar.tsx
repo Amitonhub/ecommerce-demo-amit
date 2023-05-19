@@ -25,10 +25,10 @@ export default function Navbar() {
   const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const wishlist = useSelector((state: RootState) => state.rootReducer.wishlist.wishlist);
-  const filteredWishlist = wishlist.filter((item: WishlistItem) => item.userId === userId);
   const cart = useSelector((state: RootState) => state.rootReducer.cart.cart);
-  const filteredCart = cart.filter((item: Cart) => item.userId === userId);
   const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id)
+  const filteredWishlist = wishlist.filter((item: WishlistItem) => item.userId === userId);
+  const filteredCart = cart.filter((item: Cart) => item.userId === userId);
   const searchText = useSelector((state: RootState) => state.rootReducer.search.searchText);
 
   useEffect(() => {

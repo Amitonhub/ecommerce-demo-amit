@@ -23,24 +23,12 @@ export const dummyApi = createApi({
     getUserData: builder.query<Person, number>({
       query: (userId) => `/users/${userId}`,
     }),
-    getProductsByCategory: builder.query<Product[], string>({
-      query: (category) => `/products/category/${category}`,
-    }),
-    fetchProducts: builder.query<any, null>({
-      query: () => '/products',
-    }),
-    fetchProductDetails: builder.query<any, number>({
-      query: (id) => `/products/${id}`,
-    }),
   }),
 });
 
 export const {
   useFetchLogInDataMutation,
   useGetUserDataQuery,
-  useGetProductsByCategoryQuery,
-  useFetchProductsQuery,
-  useFetchProductDetailsQuery,
 } = dummyApi;
 
 export const fetchProducts = async () => {
