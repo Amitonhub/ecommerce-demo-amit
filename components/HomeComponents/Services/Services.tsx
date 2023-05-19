@@ -6,12 +6,14 @@ import guarantee from "../../../assets/HomeAssets/Services/guarantee.png";
 import upArrow from "../../../assets/HomeAssets/Services/upArrow.png";
 
 export default function Services() {
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
+
   return (
     <>
       <div className={styles.instanceParent}>

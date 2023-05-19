@@ -12,7 +12,7 @@ const COUNTDOWN_INTERVAL = 1000;
 
 export default function FlashSales() {
   const [index, setIndex] = useState(0);
-  const { products, loading, error } = useSelector((state: RootState) => state.rootReducer.products);
+  const { products, error } = useSelector((state: RootState) => state.rootReducer.products);
   const sortedProducts = products.slice().sort((a, b) => b.discountPercentage - a.discountPercentage);
   const [countdown, setCountdown] = useState({
     days: 0,

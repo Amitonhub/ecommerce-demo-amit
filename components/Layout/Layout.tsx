@@ -8,15 +8,10 @@ import { fetchCart, fetchProducts, fetchWishlist } from "@/pages/api/Api";
 import { setWishlistItems } from "@/redux/actions/WishlistAction";
 import { useEffect } from "react";
 import { setCartItems } from "@/redux/actions/CartAction";
-import "@fontsource/inter"; 
+import "@fontsource/inter";
 import "@fontsource/montserrat";
 import { fetchProductsSuccess } from "@/redux/actions/ProductAction";
-
-type LayoutProps = {
-  children: React.ReactNode;
-  Component: AppProps["Component"];
-  pageProps: AppProps["pageProps"];
-};
+import { LayoutProps } from "../types/Types";
 
 const Layout = ({ children }: LayoutProps) => {
   const dispatch = useDispatch();
@@ -33,15 +28,16 @@ const Layout = ({ children }: LayoutProps) => {
       .catch((error) => {
         console.log("Error setting data to wishlist:", error);
       });
-      fetchCart()
+    fetchCart()
       .then((data) => {
         dispatch(setCartItems(data));
       })
       .catch((error) => {
         console.log("Error setting data to wishlist:", error);
       });
-      fetchProductsAsync();
+    fetchProductsAsync();
   }, [dispatch]);
+
   return (
     <>
       <Header />

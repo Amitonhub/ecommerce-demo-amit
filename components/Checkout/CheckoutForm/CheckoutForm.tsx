@@ -7,13 +7,11 @@ import { Person } from "@/components/types/Types";
 
 export default function CheckoutForm() {
   const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
-  const [user, setUser] = useState<Person | undefined>();
+  const [user, setUser] = useState<Person | null>();
   const { data } = useGetUserDataQuery(userId);
 
   useEffect(() => {
-    if (data) {
-      setUser(data);
-    }
+    setUser(data);
   }, [data]);
 
   return (

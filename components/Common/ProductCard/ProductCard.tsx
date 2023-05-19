@@ -9,7 +9,6 @@ import { addToCartToApi, addToWishlistToApi } from "@/pages/api/Api";
 import { addToWishlist } from "@/redux/actions/WishlistAction";
 import { RootState } from "@/redux/store";
 import { useDispatch, useSelector } from "react-redux";
-import cart from "@/pages/cart";
 import { addToCart } from "@/redux/actions/CartAction";
 import Swal from "sweetalert2";
 
@@ -54,6 +53,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
 
     }
   };
+
 
   const handleCart = () => {
     if (userId) {

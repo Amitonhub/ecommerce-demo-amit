@@ -1,21 +1,8 @@
 import { Product } from "@/components/types/Types";
-import getProductsByCategory from "@/pages/api/Api";
 import {
-  CategoryActionTypes,
   FetchProductsSuccessAction,
-  FetchProductsFailureAction,
+  FetchProductsFailureAction
 } from "./actionTypes/CategoryActionTypes";
-
-export const fetchProducts = async (
-  category: string
-): Promise<CategoryActionTypes> => {
-  try {
-    const data = await getProductsByCategory(category);
-    return fetchProductsSuccess(data, category);
-  } catch (error: any) {
-    return fetchProductsFailure(error.message);
-  }
-};
 
 export const fetchProductsSuccess = (
   products: Product[],

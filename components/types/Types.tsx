@@ -1,3 +1,5 @@
+import { AppProps } from "next/app";
+
 export interface LogIn {
   email: string;
   firstName: string;
@@ -94,3 +96,9 @@ export interface CheckoutItem {
   product: Product[];
   totalPrice: number;
 }
+
+export type LayoutProps = {
+  children: React.ReactNode;
+  Component: AppProps["Component"];
+  pageProps: AppProps["pageProps"];
+};

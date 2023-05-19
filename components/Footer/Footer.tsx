@@ -10,13 +10,12 @@ import twitter from "../../assets/icontwitter.png";
 import instagram from "../../assets/iconinstagram.png";
 import linkedin from "../../assets/iconlinkedin.png";
 import sendEmail from "../../assets/iconsend.png";
-import { Row } from "react-bootstrap";
 import Link from "next/link";
 
 export default function Footer() {
   return (
     <>
-      <Row>
+      <div className="row">
         <div className={`container ${styles.footer}`}>
           <div className={styles.underlineParent}>
             <img className={styles.underlineIcon} alt="" src={underline.src} />
@@ -133,7 +132,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </Row>
+      </div>
     </>
   );
 }

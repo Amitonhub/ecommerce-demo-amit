@@ -5,9 +5,10 @@ import styles from "./CategoryPage.module.css";
 import ProductCard from "@/components/Common/ProductCard/ProductCard";
 import leftArrow from "../../../../assets/HomeAssets/FlashSales/leftArrow.png";
 import rightArrow from "../../../../assets/HomeAssets/FlashSales/rightArrow.png";
-import { fetchProducts } from "@/redux/actions/CategoryAction";
+import { fetchProductsFailure, fetchProductsSuccess } from "@/redux/actions/CategoryAction";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import { getProductsByCategory } from "@/pages/api/Api";
 
 export default function CategoryPage() {
   const dispatch = useDispatch();
@@ -15,14 +16,17 @@ export default function CategoryPage() {
   const router = useRouter();
   const { category } = router.query;
   const products = useSelector((state: RootState) => state.rootReducer.category.products)
- 
+
   useEffect(() => {
-    const fetchData = async () => {
-      if (typeof category === "string") {
-        dispatch(await fetchProducts(category));
+    const fetchProducts = async (category: string) => {
+      try {
+        const data = await getProductsByCategory(category);
+        dispatch(fetchProductsSuccess(data, category))
+      } catch (error: any) {
+        dispatch(fetchProductsFailure(error.message))
       }
     };
-    fetchData();
+    fetchProducts(String(category))
   }, [category, dispatch]);
 
   const handleClickLeft = () => setIndex((index - 1 + products.length) % products.length);

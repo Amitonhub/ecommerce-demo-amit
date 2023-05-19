@@ -19,7 +19,6 @@ import { Cart, WishlistItem } from "../types/Types";
 import Swal from "sweetalert2";
 import { fetchCheckoutItemsSuccess } from "@/redux/actions/CheckoutAction";
 import { useRouter } from "next/router";
-import SkeletonComponent from "../Common/Skeleton/Skeleton";
 
 export default function DetailsPage() {
   const router = useRouter()
@@ -30,6 +29,7 @@ export default function DetailsPage() {
   const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
   const wishlist = useSelector((state: RootState) => state.rootReducer.wishlist.wishlist);
   const nextId = useRef(1);
+  const totalPrice = product.price * quantity;
 
   const handleWishlist = () => {
     if (userId) {
@@ -79,21 +79,16 @@ export default function DetailsPage() {
     }
   };
 
-  const totalPrice = product.price * quantity;
-
   const handleBuyNow = () => {
     const cartItem: Cart = {
       id: product.id,
       product: product,
       quantity: quantity,
     };
-
     const cartItems: Cart[] = [cartItem];
-
     dispatch(fetchCheckoutItemsSuccess(cartItems, totalPrice));
     router.push('/checkout');
   };
-
 
   return (
     <>

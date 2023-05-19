@@ -20,13 +20,13 @@ export const dummyApi = createApi({
         },
       }),
     }),
-    getUserData: builder.query<Person | undefined, number | undefined>({
+    getUserData: builder.query<Person, number>({
       query: (userId) => `/users/${userId}`,
     }),
     getProductsByCategory: builder.query<Product[], string>({
       query: (category) => `/products/category/${category}`,
     }),
-    fetchProducts: builder.query<any, void>({
+    fetchProducts: builder.query<any, null>({
       query: () => '/products',
     }),
     fetchProductDetails: builder.query<any, number>({
@@ -53,6 +53,12 @@ export const fetchProductDetails = async (id: number): Promise<any> => {
   const response = await fetch(`${BASE_DUMMY_URL}/products/${id}`);
   const data = await response.json();
   return data;
+};
+
+export const getProductsByCategory = async (category: string) => {
+  const url = `${BASE_DUMMY_URL}/products/category/${category}`;
+  const response = await axios.get(url);
+  return response.data.products;
 };
 
 export const addToWishlistToApi = async (wishlistItem: WishlistItem) => {
@@ -135,8 +141,6 @@ export const moveAllToCartApi = async (cartItems: Cart[]) => {
   return addedItems;
 };
 
-
-
 export async function fetchCart(): Promise<Cart[]> {
   const response = await axios.get(`${BASE_MOCK_URL}/cart`);
   const data = response.data;
@@ -167,19 +171,3 @@ export const updateCartItemQuantity = async (cartItemId: number, newQuantity: nu
     return null;
   }
 };
-
-export async function getUserData(userId?: number): Promise<Person | undefined> {
-  if (!userId) {
-    return undefined;
-  }
-  const response = await axios.get(`${BASE_DUMMY_URL}/users/${userId}`);
-  return response.data;
-}
-
-const getProductsByCategory = async (category: string) => {
-  const url = `${BASE_DUMMY_URL}/products/category/${category}`;
-  const response = await axios.get(url);
-  return response.data.products;
-};
-
-export default getProductsByCategory;

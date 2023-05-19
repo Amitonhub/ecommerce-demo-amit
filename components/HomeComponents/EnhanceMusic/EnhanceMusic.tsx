@@ -16,7 +16,7 @@ export default function EnhanceMusic() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const endTime = new Date("2023-05-24T00:00:00"); 
+      const endTime = new Date("2023-05-24T00:00:00");
       const now = new Date();
       const timeLeft = endTime.getTime() - now.getTime();
 
@@ -41,8 +41,9 @@ export default function EnhanceMusic() {
 
     return () => clearInterval(timer);
   }, []);
+
   return <>
-  <div className={styles.ellipseParent}>
+    <div className={styles.ellipseParent}>
       <img className={styles.frameChild} alt="" src={ellipse_23.src} />
       <div className={styles.enhanceYourMusic}>
         Enhance Your Music Experience

@@ -6,7 +6,6 @@ import { Cart, WishlistItem } from "../types/Types";
 import { moveAllToCartApi } from "@/pages/api/Api";
 import { moveAllToCart } from "@/redux/actions/CartAction";
 import Swal from "sweetalert2";
-import { useRef } from "react";
 
 export default function Wishlist() {
   const dispatch = useDispatch();
@@ -14,7 +13,6 @@ export default function Wishlist() {
   const cart = useSelector((state: RootState) => state.rootReducer.cart.cart);
   const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
   const product = wishlist.filter((item: WishlistItem) => item.userId === userId);
-  const nextId = useRef(1);
 
   const handleCart = async () => {
     const filteredCart = cart.filter((item: Cart) => item.userId === userId);

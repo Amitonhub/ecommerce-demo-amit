@@ -18,7 +18,7 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   }: UseFormReturn<LogIn> = useForm();
-  const [fetchLogInData, { isLoading, isError, data, error }] = useFetchLogInDataMutation();
+  const [fetchLogInData] = useFetchLogInDataMutation();
 
   const onSubmit = (data: LogIn) => {
     fetchLogInData(data)
