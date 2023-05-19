@@ -8,20 +8,13 @@ import { Person } from "@/components/types/Types";
 export default function CheckoutForm() {
   const userId = useSelector((state: RootState) => state.rootReducer.logIn.user?.id);
   const [user, setUser] = useState<Person | undefined>();
-  const { data: userData, refetch: refetchUserData } =
-    useGetUserDataQuery(userId);
+  const { data } = useGetUserDataQuery(userId);
 
   useEffect(() => {
-    if (userData) {
-      setUser(userData);
+    if (data) {
+      setUser(data);
     }
-  }, [userData]);
-
-  useEffect(() => {
-    if (userId) {
-      refetchUserData();
-    }
-  }, [userId, refetchUserData]);
+  }, [data]);
 
   return (
     <>
