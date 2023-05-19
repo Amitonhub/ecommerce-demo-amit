@@ -7,7 +7,6 @@ import FlashProductCard from "@/components/Common/FlashProductCard/FlashProductC
 import { Product } from "@/components/types/Types";
 import { RootState } from "@/redux/store";
 import Link from "next/link";
-import SkeletonComponent from "@/components/Common/Skeleton/Skeleton";
 
 const COUNTDOWN_INTERVAL = 1000;
 
@@ -49,12 +48,6 @@ export default function FlashSales() {
 
     return () => clearInterval(timer);
   }, []);
-
-  if (loading) {
-    return <>
-      <SkeletonComponent />
-    </>;
-  }
 
   if (error) {
     return <div>Error: {error}</div>;
