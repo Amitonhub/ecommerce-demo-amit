@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import search from "../../assets/search.png";
 import user from "../../assets/user.png";
 import cartImg from "../../assets/cart.png";
-import navHeart from '../../assets/navheart.png'
-import wishBadge from '../../assets/wishBadge.png'
+import navHeart from '../../assets/navheart.png';
+import wishBadge from '../../assets/wishBadge.png';
 import Link from "next/link";
 import { RootState } from "@/redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { Cart, WishlistItem } from "../types/Types";
-import dropAccount from '../../assets/Navbar/dropAccount.png'
-import cancellation from '../../assets/Navbar/cancellation.png'
-import logOut from '../../assets/Navbar/logOut.png'
-import myOrders from '../../assets/Navbar/myOrders.png'
-import reviews from '../../assets/Navbar/reviews.png'
+import dropAccount from '../../assets/Navbar/dropAccount.png';
+import cancellation from '../../assets/Navbar/cancellation.png';
+import logOut from '../../assets/Navbar/logOut.png';
+import myOrders from '../../assets/Navbar/myOrders.png';
+import reviews from '../../assets/Navbar/reviews.png';
 import { setSearchText } from "@/redux/actions/SearchAction";
 import { useRouter } from "next/router";
 import { logOutAction } from "@/redux/actions/LogInAction";
@@ -30,12 +30,6 @@ export default function Navbar() {
   const filteredWishlist = wishlist.filter((item: WishlistItem) => item.userId === userId);
   const filteredCart = cart.filter((item: Cart) => item.userId === userId);
   const searchText = useSelector((state: RootState) => state.rootReducer.search.searchText);
-
-  useEffect(() => {
-    if (searchText === "") {
-      router.push('/');
-    }
-  }, [searchText]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const text = e.target.value;

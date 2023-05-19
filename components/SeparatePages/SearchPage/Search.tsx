@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "../FlashSalesPage/FlashSalesPage.module.css";
 import { RootState } from "@/redux/store";
@@ -6,12 +6,20 @@ import { Product } from "@/components/types/Types";
 import ProductCard from "@/components/Common/ProductCard/ProductCard";
 import leftArrow from "../../../assets/HomeAssets/FlashSales/leftArrow.png";
 import rightArrow from "../../../assets/HomeAssets/FlashSales/rightArrow.png";
+import { useRouter } from "next/router";
 
 export default function Search() {
+    const router = useRouter()
     const [index, setIndex] = useState(0);
     const { products, loading, error } = useSelector((state: RootState) => state.rootReducer.products);
     const searchText = useSelector((state: RootState) => state.rootReducer.search.searchText);
     const filteredProducts = products.filter((product: Product) => product.title.toLowerCase().includes(searchText.toLowerCase()));
+
+    useEffect(() => {
+        if (searchText === "") {
+            router.push('/');
+        }
+    }, [searchText]);
 
     if (loading) {
         return <div>Loading...</div>;
